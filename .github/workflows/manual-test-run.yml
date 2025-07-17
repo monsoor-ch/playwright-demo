@@ -1,0 +1,184 @@
+name: Manual Test Execution
+
+on:
+  workflow_dispatch:
+    inputs:
+      test_environment:
+        description: 'Test Environment'
+        required: true
+        default: 'staging'
+        type: choice
+        options:
+          - 'staging'
+          - 'production'
+          - 'development'
+          
+      browser:
+        description: 'Browser to test'
+        required: true
+        default: 'chromium'
+        type: choice
+        options:
+          - 'chromium'
+          - 'firefox'
+          - 'webkit'
+          - 'all'
+          
+      test_suite:
+        description: 'Test Suite to run'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - 'all'
+          - 'google-search'
+          - 'azure-blob'
+          - 'email-validator'
+          - 'sftp-client'
+          
+      base_url:
+        description: 'Base URL (optional override)'
+        required: false
+        type: string
+        
+      headed_mode:
+        description: 'Run in headed mode (visible browser)'
+        required: false
+        default: false
+        type: boolean
+        
+      debug_mode:
+        description: 'Enable debug logging'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  manual-test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: |
+        npm ci
+        if [ "${{ inputs.browser }}" == "all" ]; then
+          npx playwright install --with-deps
+        else
+          npx playwright install --with-deps ${{ inputs.browser }}
+        fi
+        
+    - name: Create environment file
+      run: |
+        echo "ENVIRONMENT=${{ inputs.test_environment }}" >> .env
+        if [ -n "${{ inputs.base_url }}" ]; then
+          echo "BASE_URL=${{ inputs.base_url }}" >> .env
+        else
+          case "${{ inputs.test_environment }}" in
+            "production")
+              echo "BASE_URL=https://www.google.com" >> .env
+              ;;
+            "staging")
+              echo "BASE_URL=https://www.google.com" >> .env
+              ;;
+            "development")
+              echo "BASE_URL=https://www.google.com" >> .env
+              ;;
+          esac
+        fi
+        
+        echo "HEADLESS=${{ inputs.headed_mode == false }}" >> .env
+        echo "LOG_LEVEL=${{ inputs.debug_mode == true && 'debug' || 'info' }}" >> .env
+        echo "LOG_TO_FILE=true" >> .env
+        echo "SLOW_MO=${{ inputs.headed_mode == true && '1000' || '0' }}" >> .env
+        
+        # Add service configurations
+        echo "AZURE_STORAGE_CONNECTION_STRING=${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}" >> .env
+        echo "AZURE_STORAGE_CONTAINER_NAME=${{ secrets.AZURE_STORAGE_CONTAINER_NAME }}" >> .env
+        echo "EMAIL_HOST=${{ secrets.EMAIL_HOST }}" >> .env
+        echo "EMAIL_PORT=${{ secrets.EMAIL_PORT }}" >> .env
+        echo "EMAIL_USER=${{ secrets.EMAIL_USER }}" >> .env
+        echo "EMAIL_PASSWORD=${{ secrets.EMAIL_PASSWORD }}" >> .env
+        echo "EMAIL_SECURE=${{ secrets.EMAIL_SECURE }}" >> .env
+        echo "SFTP_HOST=${{ secrets.SFTP_HOST }}" >> .env
+        echo "SFTP_PORT=${{ secrets.SFTP_PORT }}" >> .env
+        echo "SFTP_USERNAME=${{ secrets.SFTP_USERNAME }}" >> .env
+        echo "SFTP_PASSWORD=${{ secrets.SFTP_PASSWORD }}" >> .env
+        
+    - name: Determine test command
+      id: test-cmd
+      run: |
+        if [ "${{ inputs.test_suite }}" == "all" ]; then
+          if [ "${{ inputs.browser }}" == "all" ]; then
+            echo "command=npx playwright test" >> $GITHUB_OUTPUT
+          else
+            echo "command=npx playwright test --project=${{ inputs.browser }}" >> $GITHUB_OUTPUT
+          fi
+        else
+          if [ "${{ inputs.browser }}" == "all" ]; then
+            echo "command=npx playwright test tests/${{ inputs.test_suite }}" >> $GITHUB_OUTPUT
+          else
+            echo "command=npx playwright test tests/${{ inputs.test_suite }} --project=${{ inputs.browser }}" >> $GITHUB_OUTPUT
+          fi
+        fi
+        
+    - name: Run Playwright tests
+      run: ${{ steps.test-cmd.outputs.command }}
+      env:
+        CI: true
+        
+    - name: Generate execution summary
+      if: always()
+      run: |
+        echo "# Manual Test Execution Summary" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "## Test Configuration" >> $GITHUB_STEP_SUMMARY
+        echo "- **Environment**: ${{ inputs.test_environment }}" >> $GITHUB_STEP_SUMMARY
+        echo "- **Browser**: ${{ inputs.browser }}" >> $GITHUB_STEP_SUMMARY
+        echo "- **Test Suite**: ${{ inputs.test_suite }}" >> $GITHUB_STEP_SUMMARY
+        echo "- **Base URL**: ${{ inputs.base_url || 'Default' }}" >> $GITHUB_STEP_SUMMARY
+        echo "- **Headed Mode**: ${{ inputs.headed_mode }}" >> $GITHUB_STEP_SUMMARY
+        echo "- **Debug Mode**: ${{ inputs.debug_mode }}" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "## Execution Details" >> $GITHUB_STEP_SUMMARY
+        echo "- **Started**: $(date)" >> $GITHUB_STEP_SUMMARY
+        echo "- **Command**: ${{ steps.test-cmd.outputs.command }}" >> $GITHUB_STEP_SUMMARY
+        echo "- **Status**: ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
+        
+    - name: Upload test results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: manual-test-results-${{ inputs.test_environment }}-${{ inputs.browser }}-${{ inputs.test_suite }}
+        path: |
+          playwright-report/
+          test-results/
+          test-results.json
+          test-results.xml
+        retention-days: 30
+        
+    - name: Upload logs
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: manual-test-logs-${{ inputs.test_environment }}-${{ inputs.browser }}-${{ inputs.test_suite }}
+        path: logs/
+        retention-days: 7
+        
+    - name: Comment on workflow run
+      if: always()
+      run: |
+        echo "Manual test execution completed!"
+        echo "Environment: ${{ inputs.test_environment }}"
+        echo "Browser: ${{ inputs.browser }}"
+        echo "Test Suite: ${{ inputs.test_suite }}"
+        echo "Status: ${{ job.status }}"
+        echo "Check artifacts for detailed reports and logs."

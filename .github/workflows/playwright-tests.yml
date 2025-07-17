@@ -1,0 +1,101 @@
+name: Playwright Tests
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    # Run tests daily at 2 AM UTC
+    - cron: '0 2 * * *'
+
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium, firefox, webkit]
+        os: [ubuntu-latest]
+        node-version: [18, 20]
+        
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: |
+        npm ci
+        npx playwright install --with-deps ${{ matrix.browser }}
+        
+    - name: Create environment file
+      run: |
+        echo "ENVIRONMENT=ci" >> .env
+        echo "BASE_URL=https://www.google.com" >> .env
+        echo "HEADLESS=true" >> .env
+        echo "LOG_LEVEL=info" >> .env
+        echo "LOG_TO_FILE=true" >> .env
+        echo "AZURE_STORAGE_CONNECTION_STRING=${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}" >> .env
+        echo "AZURE_STORAGE_CONTAINER_NAME=${{ secrets.AZURE_STORAGE_CONTAINER_NAME }}" >> .env
+        echo "EMAIL_HOST=${{ secrets.EMAIL_HOST }}" >> .env
+        echo "EMAIL_PORT=${{ secrets.EMAIL_PORT }}" >> .env
+        echo "EMAIL_USER=${{ secrets.EMAIL_USER }}" >> .env
+        echo "EMAIL_PASSWORD=${{ secrets.EMAIL_PASSWORD }}" >> .env
+        echo "EMAIL_SECURE=${{ secrets.EMAIL_SECURE }}" >> .env
+        echo "SFTP_HOST=${{ secrets.SFTP_HOST }}" >> .env
+        echo "SFTP_PORT=${{ secrets.SFTP_PORT }}" >> .env
+        echo "SFTP_USERNAME=${{ secrets.SFTP_USERNAME }}" >> .env
+        echo "SFTP_PASSWORD=${{ secrets.SFTP_PASSWORD }}" >> .env
+        
+    - name: Run Playwright tests
+      run: npx playwright test --project=${{ matrix.browser }}
+      env:
+        CI: true
+        
+    - name: Upload test results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: playwright-report-${{ matrix.browser }}-${{ matrix.node-version }}
+        path: |
+          playwright-report/
+          test-results/
+          test-results.json
+          test-results.xml
+        retention-days: 30
+        
+    - name: Upload logs
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: test-logs-${{ matrix.browser }}-${{ matrix.node-version }}
+        path: logs/
+        retention-days: 7
+
+  test-summary:
+    needs: test
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+    - name: Download all artifacts
+      uses: actions/download-artifact@v4
+      
+    - name: Generate test summary
+      run: |
+        echo "# Test Results Summary" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "## Test Execution Status" >> $GITHUB_STEP_SUMMARY
+        echo "- **Workflow Status**: ${{ needs.test.result }}" >> $GITHUB_STEP_SUMMARY
+        echo "- **Execution Time**: $(date)" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "## Artifacts Generated" >> $GITHUB_STEP_SUMMARY
+        echo "- Test reports available in artifacts" >> $GITHUB_STEP_SUMMARY
+        echo "- Screenshots and videos for failed tests" >> $GITHUB_STEP_SUMMARY
+        echo "- Detailed logs for debugging" >> $GITHUB_STEP_SUMMARY
