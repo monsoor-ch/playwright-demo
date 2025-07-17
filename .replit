@@ -2,6 +2,7 @@ modules = ["nodejs-20"]
 
 [nix]
 channel = "stable-24_05"
+packages = ["glib", "nspr", "nss", "dbus", "atk", "cups", "libxkbcommon", "xorg.libX11", "xorg.libXcomposite", "xorg.libXdamage", "xorg.libXext", "xorg.libXfixes", "xorg.libXrandr", "mesa", "cairo", "alsa-lib", "pango", "xorg.libXcursor", "xorg.libXi", "gtk3", "gdk-pixbuf"]
 
 [workflows]
 runButton = "Project"
@@ -22,6 +23,18 @@ args = "Test Framework"
 [[workflows.workflow.tasks]]
 task = "workflow.run"
 args = "Test All"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Test Framework Only"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Test Simple"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Framework Dashboard"
 
 [[workflows.workflow]]
 name = "Install Dependencies"
@@ -46,3 +59,32 @@ author = "agent"
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "npx playwright test --reporter=list"
+
+[[workflows.workflow]]
+name = "Test Framework Only"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npx playwright test tests/config/framework-setup.spec.ts --reporter=list"
+
+[[workflows.workflow]]
+name = "Test Simple"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npx playwright test tests/config/framework-setup.spec.ts --project=chromium --reporter=html"
+
+[[workflows.workflow]]
+name = "Framework Dashboard"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "node app.js"
+waitForPort = 5000
+
+[[ports]]
+localPort = 5000
+externalPort = 80
