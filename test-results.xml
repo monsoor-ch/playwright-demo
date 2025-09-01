@@ -1,0 +1,229 @@
+<testsuites id="" name="" tests="29" failures="0" skipped="24" errors="0" time="23.168041000000002">
+<testsuite name="config/framework-setup.spec.ts" timestamp="2025-09-01T21:38:02.427Z" hostname="Google Chrome" tests="4" failures="0" skipped="0" time="0.166" errors="0">
+<testcase name="Framework Setup Tests › should initialize configuration correctly" classname="config/framework-setup.spec.ts" time="0.035">
+</testcase>
+<testcase name="Framework Setup Tests › should initialize logger correctly" classname="config/framework-setup.spec.ts" time="0.061">
+<system-out>
+<![CDATA[2025-09-02 03:08:06 [[32minfo[39m]: Test log message
+2025-09-02 03:08:06 [[33mwarn[39m]: Warning message
+]]>
+</system-out>
+</testcase>
+<testcase name="Framework Setup Tests › should load environment configuration" classname="config/framework-setup.spec.ts" time="0.02">
+</testcase>
+<testcase name="Framework Setup Tests › should validate framework structure" classname="config/framework-setup.spec.ts" time="0.05">
+</testcase>
+</testsuite>
+<testsuite name="google-search.spec.ts" timestamp="2025-09-01T21:38:02.427Z" hostname="Google Chrome" tests="1" failures="0" skipped="0" time="11.121" errors="0">
+<testcase name="Google Search Tests › PROJ-001: should perform basic Google search" classname="google-search.spec.ts" time="11.121">
+<system-out>
+<![CDATA[2025-09-02 03:08:17 [[32minfo[39m]: 🧪 Test started: Google Search Test Setup
+2025-09-02 03:08:17 [[32minfo[39m]: Navigating to: https://www.google.com
+2025-09-02 03:08:21 [[32minfo[39m]: 🧪 Test started: Basic Google search for: Playwright automation
+2025-09-02 03:08:21 [[32minfo[39m]: 📝 Step: Performing Google search
+2025-09-02 03:08:21 [[32minfo[39m]: Performing Google search for: Playwright automation
+2025-09-02 03:08:22 [[32minfo[39m]: Search completed for: Playwright automation
+2025-09-02 03:08:22 [[32minfo[39m]: ✅ Test passed: Basic Google search
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="utils/azure-blob.spec.ts" timestamp="2025-09-01T21:38:02.427Z" hostname="Google Chrome" tests="8" failures="0" skipped="8" time="0.002" errors="0">
+<testcase name="Azure Blob Storage Tests › should upload file to blob storage" classname="utils/azure-blob.spec.ts" time="0.002">
+<properties>
+<property name="skip" value="Azure Storage connection string not configured">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure Blob Storage Tests › should upload content directly to blob storage" classname="utils/azure-blob.spec.ts" time="0">
+<properties>
+<property name="skip" value="Azure Storage connection string not configured">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure Blob Storage Tests › should retrieve blob information" classname="utils/azure-blob.spec.ts" time="0">
+<properties>
+<property name="skip" value="Azure Storage connection string not configured">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure Blob Storage Tests › should download file from blob storage" classname="utils/azure-blob.spec.ts" time="0">
+<properties>
+<property name="skip" value="Azure Storage connection string not configured">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure Blob Storage Tests › should download content as string" classname="utils/azure-blob.spec.ts" time="0">
+<properties>
+<property name="skip" value="Azure Storage connection string not configured">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure Blob Storage Tests › should list blobs in container" classname="utils/azure-blob.spec.ts" time="0">
+<properties>
+<property name="skip" value="Azure Storage connection string not configured">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure Blob Storage Tests › should validate file properties" classname="utils/azure-blob.spec.ts" time="0">
+<properties>
+<property name="skip" value="Azure Storage connection string not configured">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Azure Blob Storage Tests › should handle non-existent blob operations" classname="utils/azure-blob.spec.ts" time="0">
+<properties>
+<property name="skip" value="Azure Storage connection string not configured">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="utils/email-validator.spec.ts" timestamp="2025-09-01T21:38:02.427Z" hostname="Google Chrome" tests="6" failures="0" skipped="6" time="0.036" errors="0">
+<testcase name="Email Validator Tests › should send test email" classname="utils/email-validator.spec.ts" time="0">
+<properties>
+<property name="skip" value="Email credentials not configured">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Email Validator Tests › should search for emails" classname="utils/email-validator.spec.ts" time="0">
+<properties>
+<property name="skip" value="Email credentials not configured">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Email Validator Tests › should search for emails with specific subject" classname="utils/email-validator.spec.ts" time="0.036">
+<properties>
+<property name="skip" value="Email credentials not configured">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Email Validator Tests › should wait for email with timeout" classname="utils/email-validator.spec.ts" time="0">
+<properties>
+<property name="skip" value="Email credentials not configured">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Email Validator Tests › should validate email content" classname="utils/email-validator.spec.ts" time="0">
+<properties>
+<property name="skip" value="Email credentials not configured">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Email Validator Tests › should handle email operations gracefully" classname="utils/email-validator.spec.ts" time="0">
+<properties>
+<property name="skip" value="Email credentials not configured">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="utils/sftp-client.spec.ts" timestamp="2025-09-01T21:38:02.427Z" hostname="Google Chrome" tests="10" failures="0" skipped="10" time="0" errors="0">
+<testcase name="SFTP Client Tests › should connect to SFTP server" classname="utils/sftp-client.spec.ts" time="0">
+<properties>
+<property name="skip" value="SFTP credentials not configured">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="SFTP Client Tests › should upload file to SFTP server" classname="utils/sftp-client.spec.ts" time="0">
+<properties>
+<property name="skip" value="SFTP credentials not configured">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="SFTP Client Tests › should get file information" classname="utils/sftp-client.spec.ts" time="0">
+<properties>
+<property name="skip" value="SFTP credentials not configured">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="SFTP Client Tests › should download file from SFTP server" classname="utils/sftp-client.spec.ts" time="0">
+<properties>
+<property name="skip" value="SFTP credentials not configured">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="SFTP Client Tests › should get file content as string" classname="utils/sftp-client.spec.ts" time="0">
+<properties>
+<property name="skip" value="SFTP credentials not configured">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="SFTP Client Tests › should list files in directory" classname="utils/sftp-client.spec.ts" time="0">
+<properties>
+<property name="skip" value="SFTP credentials not configured">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="SFTP Client Tests › should validate file properties" classname="utils/sftp-client.spec.ts" time="0">
+<properties>
+<property name="skip" value="SFTP credentials not configured">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="SFTP Client Tests › should wait for file to appear" classname="utils/sftp-client.spec.ts" time="0">
+<properties>
+<property name="skip" value="SFTP credentials not configured">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="SFTP Client Tests › should handle non-existent file operations" classname="utils/sftp-client.spec.ts" time="0">
+<properties>
+<property name="skip" value="SFTP credentials not configured">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="SFTP Client Tests › should create and delete directories" classname="utils/sftp-client.spec.ts" time="0">
+<properties>
+<property name="skip" value="SFTP credentials not configured">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+</testsuites>

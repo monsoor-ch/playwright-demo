@@ -11,7 +11,7 @@ export class GoogleHomePage extends BasePage {
     super(page, 'https://www.google.com');
     
     // Page elements
-    this.searchInput = page.locator('input[name="q"]');
+    this.searchInput = page.locator('#APjFqb');
     this.searchButton = page.locator('input[name="btnK"]').first();
     this.feelingLuckyButton = page.locator('input[name="btnI"]').first();
     this.googleLogo = page.locator('img[alt="Google"]');

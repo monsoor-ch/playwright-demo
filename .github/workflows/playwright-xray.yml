@@ -1,0 +1,196 @@
+name: Playwright Tests with Xray Integration
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  workflow_dispatch:
+    inputs:
+      test_plan_key:
+        description: 'Jira Test Plan Key (optional)'
+        required: false
+        type: string
+      environment:
+        description: 'Test Environment'
+        required: false
+        default: 'CI/CD'
+        type: string
+
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        shardIndex: [1, 2, 3, 4]
+        shardTotal: [4]
+        # shardIndex: [1]
+        # shardTotal: [1]
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 18
+        cache: 'npm'
+    
+    - name: Install Playwright Browsers
+      run: npx playwright install --with-deps
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Install Playwright
+      run: npx playwright install
+    
+    - name: Run Playwright tests
+      env:
+        JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
+        JIRA_USERNAME: ${{ secrets.JIRA_USERNAME }}
+        JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+        JIRA_PROJECT_KEY: ${{ secrets.JIRA_PROJECT_KEY }}
+        JIRA_TEST_PLAN_KEY: ${{ github.event.inputs.test_plan_key || '' }}
+        JIRA_ENVIRONMENT: ${{ github.event.inputs.environment || 'CI/CD' }}
+        JIRA_VERSION: ${{ github.sha }}
+        JIRA_REPORTER: GitHub Actions
+      run: |
+        npx playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }} --reporter=junit --output-file=test-results-${{ matrix.shardIndex }}.xml
+    
+    - name: Upload test results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: playwright-report-${{ matrix.shardIndex }}
+        path: |
+          playwright-report/
+          test-results-${{ matrix.shardIndex }}.xml
+          test-results/
+        retention-days: 30
+
+  merge-results:
+    needs: test
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 18
+        cache: 'npm'
+    
+    - name: Download all test results
+      uses: actions/download-artifact@v4
+      with:
+        pattern: playwright-report-*
+        merge-multiple: true
+        path: test-results/
+    
+    - name: Merge test results
+      run: |
+        # Merge JUnit XML files
+        echo '<?xml version="1.0" encoding="UTF-8"?>' > merged-test-results.xml
+        echo '<testsuites>' >> merged-test-results.xml
+        
+        for file in test-results/test-results-*.xml; do
+          if [ -f "$file" ]; then
+            # Extract testsuite content from each file
+            sed -n '/<testsuite/,/<\/testsuite>/p' "$file" | sed '1d;$d' >> merged-test-results.xml
+          fi
+        done
+        
+        echo '</testsuites>' >> merged-test-results.xml
+        
+        # Copy merged results to root
+        cp merged-test-results.xml test-results.xml
+    
+    - name: Upload merged test results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: merged-test-results
+        path: |
+          test-results.xml
+          test-results/
+        retention-days: 30
+
+  xray-report:
+    needs: merge-results
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 18
+        cache: 'npm'
+    
+    - name: Download merged test results
+      uses: actions/download-artifact@v4
+      with:
+        name: merged-test-results
+        path: test-results/
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Report to Jira Xray
+      env:
+        JIRA_BASE_URL: ${{ secrets.JIRA_BASE_URL }}
+        JIRA_USERNAME: ${{ secrets.JIRA_USERNAME }}
+        JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+        JIRA_PROJECT_KEY: ${{ secrets.JIRA_PROJECT_KEY }}
+        JIRA_TEST_PLAN_KEY: ${{ github.event.inputs.test_plan_key || '' }}
+        JIRA_ENVIRONMENT: ${{ github.event.inputs.environment || 'CI/CD' }}
+        JIRA_VERSION: ${{ github.sha }}
+        JIRA_REPORTER: GitHub Actions
+      run: |
+        # Run tests with Xray reporter to send results
+        npx playwright test --reporter=src/utils/xray-reporter --output-dir=test-results
+    
+    - name: Comment on PR
+      if: github.event_name == 'pull_request'
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const fs = require('fs');
+          const path = require('path');
+          
+          let comment = '## 🧪 Test Execution Results\n\n';
+          
+          // Check if Xray execution key was generated
+          const xrayKeyFile = path.join('test-results', 'xray-execution-key.txt');
+          if (fs.existsSync(xrayKeyFile)) {
+            const executionKey = fs.readFileSync(xrayKeyFile, 'utf8').trim();
+            comment += `✅ **Test Execution Created**: [${executionKey}](${process.env.JIRA_BASE_URL}/browse/${executionKey})\n\n`;
+          }
+          
+          // Check test results
+          if (fs.existsSync('test-results.xml')) {
+            const xmlContent = fs.readFileSync('test-results.xml', 'utf8');
+            const totalTests = (xmlContent.match(/tests="(\d+)"/) || [])[1] || '0';
+            const failedTests = (xmlContent.match(/failures="(\d+)"/) || [])[1] || '0';
+            const skippedTests = (xmlContent.match(/skipped="(\d+)"/) || [])[1] || '0';
+            
+            comment += `📊 **Test Summary**:\n`;
+            comment += `- Total Tests: ${totalTests}\n`;
+            comment += `- Passed: ${totalTests - failedTests - skippedTests}\n`;
+            comment += `- Failed: ${failedTests}\n`;
+            comment += `- Skipped: ${skippedTests}\n\n`;
+          }
+          
+          comment += `🔗 **View Results**: [Playwright Report](${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID})`;
+          
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: comment
+          });
+
