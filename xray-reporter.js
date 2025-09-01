@@ -1,4 +1,4 @@
-const { XrayClient } = require('./src/utils/xray-client');
+const { XrayClient } = require('./src/utils/xray-client-simple');
 const { XrayConfigManager } = require('./src/config/xray-config');
 const { Logger } = require('./src/utils/logger');
 const fs = require('fs');

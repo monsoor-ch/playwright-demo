@@ -74,23 +74,23 @@ export class XrayClient {
    */
   public async createTestExecution(execution: Omit<XrayTestExecution, 'testExecutionKey'>): Promise<string> {
     try {
+      // Use only basic fields that exist in most Jira instances
       const response: AxiosResponse = await this.axiosInstance.post('/issue', {
         fields: {
           project: {
             key: this.config.getConfig().projectKey
           },
           summary: execution.info.summary,
-          description: execution.info.description || 'Automated test execution from Playwright',
+          description: `${execution.info.description || 'Automated test execution from Playwright'}\n\nEnvironment: ${execution.info.testEnvironments?.[0] || this.config.getConfig().environment}\nVersion: ${execution.info.version || this.config.getConfig().version}\nUser: ${execution.info.user || this.config.getConfig().jiraUsername}`,
           issuetype: {
             name: 'Task'
           },
-          customfield_10014: execution.info.testEnvironments || [this.config.getConfig().environment],
-          customfield_10015: execution.info.version || this.config.getConfig().version,
-          customfield_10016: execution.info.testPlanKey,
-          customfield_10017: execution.info.revision || '1.0',
-          customfield_10018: execution.info.user || this.config.getConfig().jiraUsername,
-          customfield_10019: execution.info.startDate || new Date().toISOString(),
-          customfield_10020: execution.info.finishDate || new Date().toISOString()
+          priority: {
+            name: 'Medium'
+          },
+          assignee: {
+            name: this.config.getConfig().jiraUsername
+          }
         }
       });
 
@@ -157,48 +157,4 @@ export class XrayClient {
       throw error;
     }
   }
-
-  /**
-   * Get test execution details
-   */
-  public async getTestExecution(testExecutionKey: string): Promise<any> {
-    try {
-      const response: AxiosResponse = await this.axiosInstance.get(`/issue/${testExecutionKey}`);
-      return response.data;
-    } catch (error) {
-      this.logger.error(`Failed to get test execution ${testExecutionKey}: ${error}`);
-      throw error;
-    }
-  }
-
-  /**
-   * Search for test cases by JQL query
-   */
-  public async searchTestCases(jql: string): Promise<any[]> {
-    try {
-      const response: AxiosResponse = await this.axiosInstance.post('/search', {
-        jql: jql,
-        fields: ['key', 'summary', 'status', 'customfield_10014', 'customfield_10015']
-      });
-
-      return response.data.issues || [];
-    } catch (error) {
-      this.logger.error(`Failed to search test cases: ${error}`);
-      throw error;
-    }
-  }
-
-  /**
-   * Get test case details
-   */
-  public async getTestCase(testKey: string): Promise<any> {
-    try {
-      const response: AxiosResponse = await this.axiosInstance.get(`/issue/${testKey}`);
-      return response.data;
-    } catch (error) {
-      this.logger.error(`Failed to get test case ${testKey}: ${error}`);
-      throw error;
-    }
-  }
 }
-

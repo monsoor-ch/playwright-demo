@@ -82,7 +82,7 @@ export class XrayClient {
           summary: execution.info.summary,
           description: execution.info.description || 'Automated test execution from Playwright',
           issuetype: {
-            name: 'Task'
+            name: 'Test Execution'
           },
           customfield_10014: execution.info.testEnvironments || [this.config.getConfig().environment],
           customfield_10015: execution.info.version || this.config.getConfig().version,
