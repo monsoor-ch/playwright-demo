@@ -5,7 +5,7 @@ import { Logger } from './logger';
 export interface XrayTestResult {
   testKey: string;
   status: 'PASSED' | 'FAILED' | 'SKIPPED' | 'TODO' | 'EXECUTING';
-  comment?: string;
+  monsoor-ch  comment?: string;
   evidence?: string[];
   executionTime?: number;
   defects?: string[];
@@ -16,7 +16,7 @@ export interface XrayTestExecution {
   info: {
     summary: string;
     description?: string;
-    testEnvironments?: string[];
+    testEnvironm
     testPlanKey?: string;
     version?: string;
     revision?: string;
@@ -74,6 +74,7 @@ export class XrayClient {
    */
   public async createTestExecution(execution: Omit<XrayTestExecution, 'testExecutionKey'>): Promise<string> {
     try {
+      // Use a simpler approach - create a basic test execution issue
       const response: AxiosResponse = await this.axiosInstance.post('/issue', {
         fields: {
           project: {
@@ -83,14 +84,7 @@ export class XrayClient {
           description: execution.info.description || 'Automated test execution from Playwright',
           issuetype: {
             name: 'Test Execution'
-          },
-          customfield_10014: execution.info.testEnvironments || [this.config.getConfig().environment],
-          customfield_10015: execution.info.version || this.config.getConfig().version,
-          customfield_10016: execution.info.testPlanKey,
-          customfield_10017: execution.info.revision || '1.0',
-          customfield_10018: execution.info.user || this.config.getConfig().jiraUsername,
-          customfield_10019: execution.info.startDate || new Date().toISOString(),
-          customfield_10020: execution.info.finishDate || new Date().toISOString()
+          }
         }
       });
 
