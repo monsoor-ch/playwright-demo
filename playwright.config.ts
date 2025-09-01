@@ -46,39 +46,62 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
-    // {
-    //   name: 'chromium',
-    //   use: { ...devices['Desktop Chrome'] },
-    // },
+    {
+      name: 'chromium',
+      use: { 
+        ...devices['Desktop Chrome'],
+        headless: !!process.env.CI
+      },
+    },
 
-    // {
-    //   name: 'firefox',
-    //   use: { ...devices['Desktop Firefox'] },
-    // },
+    {
+      name: 'firefox',
+      use: { 
+        ...devices['Desktop Firefox'],
+        headless: !!process.env.CI
+      },
+    },
 
-    // {
-    //   name: 'webkit',
-    //   use: { ...devices['Desktop Safari'] },
-    // },
+    {
+      name: 'webkit',
+      use: { 
+        ...devices['Desktop Safari'],
+        headless: !!process.env.CI
+      },
+    },
 
-    // /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
-    // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 12'] },
-    // },
+    /* Test against mobile viewports. */
+    {
+      name: 'Mobile Chrome',
+      use: { 
+        ...devices['Pixel 5'],
+        headless: !!process.env.CI
+      },
+    },
+    {
+      name: 'Mobile Safari',
+      use: { 
+        ...devices['iPhone 12'],
+        headless: !!process.env.CI
+      },
+    },
 
-    // /* Test against branded browsers. */
-    // {
-    //   name: 'Microsoft Edge',
-    //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
-    // },
+    /* Test against branded browsers. */
+    {
+      name: 'Microsoft Edge',
+      use: { 
+        ...devices['Desktop Edge'], 
+        channel: 'msedge',
+        headless: !!process.env.CI
+      },
+    },
     {
       name: 'Google Chrome',
-      use: { ...devices['Desktop Chrome'], channel: 'chrome',headless: false },
+      use: { 
+        ...devices['Desktop Chrome'], 
+        channel: 'chrome',
+        headless: !!process.env.CI
+      },
     }
   ],
 
