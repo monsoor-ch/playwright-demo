@@ -57,7 +57,7 @@ jobs:
         JIRA_VERSION: ${{ github.sha }}
         JIRA_REPORTER: GitHub Actions
       run: |
-        npx playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }} --reporter=junit --output-file=test-results-${{ matrix.shardIndex }}.xml
+        npx playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }} --reporter=junit
     
     - name: Upload test results
       uses: actions/upload-artifact@v4
