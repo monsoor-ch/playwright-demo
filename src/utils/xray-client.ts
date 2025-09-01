@@ -5,7 +5,7 @@ import { Logger } from './logger';
 export interface XrayTestResult {
   testKey: string;
   status: 'PASSED' | 'FAILED' | 'SKIPPED' | 'TODO' | 'EXECUTING';
-  monsoor-ch  comment?: string;
+  comment?: string;
   evidence?: string[];
   executionTime?: number;
   defects?: string[];
@@ -16,7 +16,7 @@ export interface XrayTestExecution {
   info: {
     summary: string;
     description?: string;
-    testEnvironm
+    testEnvironments?: string[];
     testPlanKey?: string;
     version?: string;
     revision?: string;
@@ -106,91 +106,35 @@ export class XrayClient {
   /**
    * Add test results to an existing test execution
    */
-  public async addTestsToExecution(testExecutionKey: string, testResults: XrayTestResult[]): Promise<void> {
+  private async addTestsToExecution(testExecutionKey: string, tests: XrayTestResult[]): Promise<void> {
     try {
-      const response: AxiosResponse = await this.axiosInstance.post(`/issue/${testExecutionKey}/attachments`, {
-        testResults: testResults.map(test => ({
+      for (const test of tests) {
+        await this.axiosInstance.post('/execution', {
+          testExecutionKey,
           testKey: test.testKey,
           status: test.status,
-          comment: test.comment || '',
-          evidence: test.evidence || [],
-          executionTime: test.executionTime || 0,
-          defects: test.defects || []
-        }))
-      });
-
-      this.logger.info(`Added ${testResults.length} test results to execution ${testExecutionKey}`);
+          comment: test.comment || `Test executed via Playwright automation`,
+          executionTime: test.executionTime || 0
+        });
+      }
+      this.logger.info(`Added ${tests.length} test results to execution ${testExecutionKey}`);
     } catch (error) {
-      this.logger.error(`Failed to add tests to execution ${testExecutionKey}: ${error}`);
+      this.logger.error(`Failed to add tests to execution: ${error}`);
       throw error;
     }
   }
 
   /**
-   * Update test execution status
+   * Update the status of a test execution
    */
-  public async updateTestExecutionStatus(testExecutionKey: string, status: 'PASSED' | 'FAILED' | 'IN_PROGRESS'): Promise<void> {
+  public async updateTestExecutionStatus(testExecutionKey: string, status: string): Promise<void> {
     try {
-      const statusMapping = {
-        'PASSED': '10000', // Passed
-        'FAILED': '10001', // Failed
-        'IN_PROGRESS': '10002' // In Progress
-      };
-
-      await this.axiosInstance.put(`/issue/${testExecutionKey}`, {
-        fields: {
-          status: {
-            id: statusMapping[status]
-          }
-        }
+      await this.axiosInstance.put(`/execution/${testExecutionKey}`, {
+        status: status
       });
-
       this.logger.info(`Updated test execution ${testExecutionKey} status to ${status}`);
     } catch (error) {
       this.logger.error(`Failed to update test execution status: ${error}`);
-      throw error;
-    }
-  }
-
-  /**
-   * Get test execution details
-   */
-  public async getTestExecution(testExecutionKey: string): Promise<any> {
-    try {
-      const response: AxiosResponse = await this.axiosInstance.get(`/issue/${testExecutionKey}`);
-      return response.data;
-    } catch (error) {
-      this.logger.error(`Failed to get test execution ${testExecutionKey}: ${error}`);
-      throw error;
-    }
-  }
-
-  /**
-   * Search for test cases by JQL query
-   */
-  public async searchTestCases(jql: string): Promise<any[]> {
-    try {
-      const response: AxiosResponse = await this.axiosInstance.post('/search', {
-        jql: jql,
-        fields: ['key', 'summary', 'status', 'customfield_10014', 'customfield_10015']
-      });
-
-      return response.data.issues || [];
-    } catch (error) {
-      this.logger.error(`Failed to search test cases: ${error}`);
-      throw error;
-    }
-  }
-
-  /**
-   * Get test case details
-   */
-  public async getTestCase(testKey: string): Promise<any> {
-    try {
-      const response: AxiosResponse = await this.axiosInstance.get(`/issue/${testKey}`);
-      return response.data;
-    } catch (error) {
-      this.logger.error(`Failed to get test case ${testKey}: ${error}`);
       throw error;
     }
   }
