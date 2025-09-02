@@ -245,7 +245,7 @@ export class XrayServerClient {
   }
 
   /**
-   * Update test case status in Xray Server using Test Runs
+   * Update test case status in Xray Server using proper Xray workflow
    */
   public async updateTestCaseStatus(testKey: string, status: 'PASSED' | 'FAILED' | 'SKIPPED' | 'TODO' | 'EXECUTING', executionTime?: number): Promise<boolean> {
     try {
@@ -255,14 +255,42 @@ export class XrayServerClient {
         return false;
       }
 
-      // Create a Test Execution for this specific test case
-      const testExecutionData = {
+      // Step 1: Create Test Execution (container for test runs)
+      const testExecutionKey = await this.createTestExecutionForTestCase(testKey, status, executionTime);
+      if (!testExecutionKey) {
+        this.logger.error(`Failed to create test execution for ${testKey}`);
+        return false;
+      }
+
+      // Step 2: Link Test Execution to Test Case (add to Test Runs section)
+      const linked = await this.linkTestExecutionToTestCase(testKey, testExecutionKey);
+      if (!linked) {
+        this.logger.error(`Failed to link test execution ${testExecutionKey} to test case ${testKey}`);
+        return false;
+      }
+
+      // Step 3: Integration complete - Test Execution linked to Test Case
+      this.logger.info(`Successfully linked test execution ${testExecutionKey} to test case ${testKey} with status ${status}`);
+      return true;
+    } catch (error) {
+      this.logger.error(`Failed to update test case ${testKey} status in Xray Server: ${error}`);
+      return false;
+    }
+  }
+
+  /**
+   * Create Test Execution for specific test case
+   */
+  private async createTestExecutionForTestCase(testKey: string, status: string, executionTime?: number): Promise<string | null> {
+    try {
+      const timestamp = new Date().toISOString();
+      const executionData = {
         fields: {
           project: {
             key: this.config.getConfig().projectKey
           },
           summary: `Test Execution: ${testKey} - ${status}`,
-          description: `Automated test run from Playwright\n\nTest: ${testKey}\nStatus: ${status}\nExecution Time: ${executionTime || 0}ms\nTimestamp: ${new Date().toISOString()}\n\nTest executed via Playwright automation`,
+          description: `Automated test execution from Playwright\n\nTest Case: ${testKey}\nStatus: ${status}\nExecution Time: ${executionTime || 0}ms\nTimestamp: ${timestamp}`,
           issuetype: {
             name: 'Test Execution'
           },
@@ -274,24 +302,74 @@ export class XrayServerClient {
           }
         }
       };
-
-      // Create the test execution
-      const response: AxiosResponse = await this.axiosInstance.post('/issue', testExecutionData);
       
+      const response = await this.axiosInstance.post('/issue', executionData);
       if (response.data && response.data.key) {
-        const testExecutionKey = response.data.key;
-        this.logger.info(`Created test execution ${testExecutionKey} for test case ${testKey} with status ${status}`);
-        
-        return true;
-      } else {
-        this.logger.warn(`Test execution creation response missing key: ${JSON.stringify(response.data)}`);
-        return false;
+        this.logger.info(`Created test execution ${response.data.key} for test case ${testKey}`);
+        return response.data.key;
       }
+      
+      return null;
     } catch (error) {
-      this.logger.error(`Failed to update test case ${testKey} status in Xray Server: ${error}`);
+      this.logger.error(`Failed to create test execution for test case: ${error}`);
+      return null;
+    }
+  }
+
+  /**
+   * Link Test Execution to Test Case (add to Test Runs section)
+   */
+  private async linkTestExecutionToTestCase(testKey: string, testExecutionKey: string): Promise<boolean> {
+    try {
+      // Create a link between Test Case and Test Execution
+      // This adds the Test Execution to the Test Runs section of the Test Case
+      const linkData = {
+        type: {
+          name: 'Test'
+        },
+        inwardIssue: {
+          key: testKey
+        },
+        outwardIssue: {
+          key: testExecutionKey
+        }
+      };
+      
+      await this.axiosInstance.post('/issueLink', linkData);
+      this.logger.info(`Linked test execution ${testExecutionKey} to test case ${testKey} (added to Test Runs section)`);
+      return true;
+    } catch (error) {
+      this.logger.error(`Failed to link test execution to test case: ${error}`);
       return false;
     }
   }
+
+  /**
+   * Update Test Execution status
+   */
+  private async updateTestExecutionStatus(testExecutionKey: string, status: string): Promise<boolean> {
+    try {
+      // Map Xray status to Jira status
+      const jiraStatus = this.mapXrayStatusToJira(status);
+      
+      // Update test execution status
+      await this.axiosInstance.put(`/issue/${testExecutionKey}`, {
+        fields: {
+          status: {
+            name: jiraStatus
+          }
+        }
+      });
+      
+      this.logger.info(`Updated test execution ${testExecutionKey} status to ${jiraStatus}`);
+      return true;
+    } catch (error) {
+      this.logger.error(`Failed to update test execution status: ${error}`);
+      return false;
+    }
+  }
+
+
 
   /**
    * Map Xray status to Jira status
