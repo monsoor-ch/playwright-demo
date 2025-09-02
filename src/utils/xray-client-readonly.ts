@@ -28,8 +28,8 @@ export interface XrayTestExecution {
   tests: XrayTestResult[];
 }
 
-export class XrayClient {
-  private static instance: XrayClient;
+export class XrayClientReadOnly {
+  private static instance: XrayClientReadOnly;
   private axiosInstance: AxiosInstance;
   private config: XrayConfigManager;
   private logger: Logger;
@@ -51,7 +51,7 @@ export class XrayClient {
       }
     });
 
-    // Add response interceptor for logging
+    // Add response interceptor for detailed logging
     this.axiosInstance.interceptors.response.use(
       (response) => {
         this.logger.info(`Xray API call successful: ${response.config.method?.toUpperCase()} ${response.config.url}`);
@@ -68,27 +68,26 @@ export class XrayClient {
     );
   }
 
-  public static getInstance(): XrayClient {
-    if (!XrayClient.instance) {
-      XrayClient.instance = new XrayClient();
+  public static getInstance(): XrayClientReadOnly {
+    if (!XrayClientReadOnly.instance) {
+      XrayClientReadOnly.instance = new XrayClientReadOnly();
     }
-    return XrayClient.instance;
+    return XrayClientReadOnly.instance;
   }
 
   /**
-   * Find existing test case by key (e.g., PROJ-001)
+   * Find existing test case by key (e.g., XSP-58) - Read-only operation
    */
   public async findTestCase(testKey: string): Promise<any> {
     try {
-      const jql = `key = ${testKey} AND issuetype = "Test"`;
-      const response: AxiosResponse = await this.axiosInstance.post('/search', {
-        jql: jql,
-        fields: ['key', 'summary', 'status', 'id']
-      });
-
-      if (response.data.issues && response.data.issues.length > 0) {
-        this.logger.info(`Found existing test case: ${testKey}`);
-        return response.data.issues[0];
+      this.logger.info(`Searching for test case: ${testKey}`);
+      
+      // Direct issue lookup - simpler and more reliable
+      const response: AxiosResponse = await this.axiosInstance.get(`/issue/${testKey}`);
+      
+      if (response.data) {
+        this.logger.info(`Found existing test case: ${testKey} (Type: ${response.data.fields.issuetype.name})`);
+        return response.data;
       } else {
         this.logger.warn(`Test case not found: ${testKey}`);
         return null;
@@ -100,51 +99,19 @@ export class XrayClient {
   }
 
   /**
-   * Update test case status directly (for existing test cases)
-   */
-  public async updateTestCaseStatus(testKey: string, status: 'PASSED' | 'FAILED' | 'SKIPPED' | 'TODO' | 'EXECUTING'): Promise<void> {
-    try {
-      const testCase = await this.findTestCase(testKey);
-      if (!testCase) {
-        this.logger.warn(`Cannot update status - test case not found: ${testKey}`);
-        return;
-      }
-
-      // Update test case status using Xray API
-      await this.axiosInstance.put(`/testcase/${testKey}/status`, {
-        status: status
-      });
-
-      this.logger.info(`Updated test case ${testKey} status to ${status}`);
-    } catch (error) {
-      this.logger.error(`Failed to update test case ${testKey} status: ${error}`);
-      // Don't throw error - continue with other updates
-    }
-  }
-
-  /**
-   * Update all test case statuses in the execution
-   */
-  public async updateAllTestCaseStatuses(testResults: XrayTestResult[]): Promise<void> {
-    for (const test of testResults) {
-      await this.updateTestCaseStatus(test.testKey, test.status);
-    }
-    this.logger.info(`Updated statuses for ${testResults.length} test cases`);
-  }
-
-  /**
-   * Create test execution using Xray API (only if needed)
+   * Create test execution using Xray API - Read-only mode
    */
   public async createTestExecution(execution: Omit<XrayTestExecution, 'testExecutionKey'>): Promise<string> {
     try {
-      // First, verify all test cases exist
+      // Verify all test cases exist (read-only check)
       const existingTestCases = [];
       for (const test of execution.tests) {
         const testCase = await this.findTestCase(test.testKey);
         if (testCase) {
           existingTestCases.push({ ...test, testCaseId: testCase.id });
+          this.logger.info(`Test case ${test.testKey} exists and is ready for execution`);
         } else {
-          this.logger.warn(`Skipping test ${test.testKey} - test case not found in Jira`);
+          this.logger.warn(`Test case ${test.testKey} not found - skipping`);
         }
       }
 
@@ -152,12 +119,12 @@ export class XrayClient {
         throw new Error('No existing test cases found to execute');
       }
 
-      // Create test execution using Xray API
+      // Try to create test execution using Xray API
       const executionData = {
         testExecutionKey: null,
         info: {
           summary: execution.info.summary,
-          description: execution.info.description || 'Automated test execution from Playwright',
+          description: execution.info.description || 'Automated test execution from Playwright (Read-only mode)',
           testEnvironments: execution.info.testEnvironments || [this.config.getConfig().environment],
           version: execution.info.version || this.config.getConfig().version,
           user: execution.info.user || this.config.getConfig().jiraUsername,
@@ -182,5 +149,24 @@ export class XrayClient {
       this.logger.error(`Failed to create test execution: ${error}`);
       throw error;
     }
+  }
+
+  /**
+   * Log test results without modifying test cases
+   */
+  public async logTestResults(testResults: XrayTestResult[]): Promise<void> {
+    this.logger.info(`=== Test Execution Summary ===`);
+    this.logger.info(`Total Tests: ${testResults.length}`);
+    
+    for (const test of testResults) {
+      const testCase = await this.findTestCase(test.testKey);
+      if (testCase) {
+        this.logger.info(`✅ ${test.testKey}: ${test.status} - ${testCase.fields.summary}`);
+      } else {
+        this.logger.warn(`❌ ${test.testKey}: ${test.status} - Test case not found`);
+      }
+    }
+    
+    this.logger.info(`=== End Test Execution Summary ===`);
   }
 }

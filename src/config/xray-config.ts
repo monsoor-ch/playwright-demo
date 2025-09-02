@@ -55,5 +55,9 @@ export class XrayConfigManager {
   public getXrayApiUrl(): string {
     return `${this.config.jiraBaseUrl}/rest/api/2`;
   }
+
+  public getJiraApiUrlV2(): string {
+    return `${this.config.jiraBaseUrl}/rest/api/2`;
+  }
 }
 

@@ -1,10 +1,9 @@
-const { XrayClientReadOnly } = require('./src/utils/xray-client-readonly');
 const { XrayConfigManager } = require('./src/config/xray-config');
 const { Logger } = require('./src/utils/logger');
 const fs = require('fs');
 const path = require('path');
 
-class XrayReporter {
+class XrayReporterSimple {
   constructor(options = {}) {
     this.options = options;
     this.testResults = new Map();
@@ -13,7 +12,7 @@ class XrayReporter {
   }
 
   onBegin(config, suite) {
-    this.logger.info('Xray Reporter: Test execution started');
+    this.logger.info('Xray Reporter (Simple): Test execution started');
     this.startTime = Date.now();
   }
 
@@ -50,7 +49,7 @@ class XrayReporter {
   }
 
   async onEnd(result) {
-    this.logger.info('Xray Reporter: Test execution completed');
+    this.logger.info('Xray Reporter (Simple): Test execution completed');
     
     try {
       const config = XrayConfigManager.getInstance();
@@ -65,7 +64,7 @@ class XrayReporter {
   }
 
   extractTestKey(test) {
-    // Try to extract test case key from test title (e.g., "PROJ-123: Test description")
+    // Try to extract test case key from test title (e.g., "XSP-58: Test description")
     const titleMatch = test.title.match(/^([A-Z]+-\d+):/);
     if (titleMatch) {
       return titleMatch[1];
@@ -99,16 +98,12 @@ class XrayReporter {
   generateTestComment(test, result) {
     let comment = `Test: ${test.title}\n`;
     comment += `Status: ${result.status}\n`;
-    comment += `Duration: ${result.duration}ms\n`;
+    comment += `Duration: ${result.duration || 0}ms\n`;
     
     if (result.error) {
       comment += `Error: ${result.error.message}\n`;
     }
-
-    if (result.attachments) {
-      comment += `Attachments: ${result.attachments.length} file(s)\n`;
-    }
-
+    
     return comment;
   }
 
@@ -117,20 +112,10 @@ class XrayReporter {
     
     if (result.attachments) {
       result.attachments.forEach(attachment => {
-        if (attachment.path) {
-          evidence.push(attachment.path);
-        }
+        evidence.push(attachment.path);
       });
     }
-
-    // Add screenshot if test failed
-    if (result.status === 'failed' && result.error) {
-      const screenshotPath = `test-results/failure-${test.title.replace(/\s+/g, '-')}-${Date.now()}.png`;
-      if (fs.existsSync(screenshotPath)) {
-        evidence.push(screenshotPath);
-      }
-    }
-
+    
     return evidence;
   }
 
@@ -142,50 +127,57 @@ class XrayReporter {
     }
 
     try {
-      const xrayClient = XrayClientReadOnly.getInstance();
       const config = XrayConfigManager.getInstance();
       
-      // Log test results (read-only mode)
-      this.logger.info('Logging test results...');
-      await xrayClient.logTestResults(results);
+      // Log test results locally
+      this.logger.info('=== Test Execution Summary ===');
+      this.logger.info(`Total Tests: ${results.length}`);
       
-      // Create test execution for tracking
-      this.logger.info('Creating test execution for tracking...');
-
-      // Create new test execution
-      const executionInfo = {
-        summary: `Automated Test Execution - ${new Date().toISOString()}`,
-        description: `Playwright test execution completed in ${Date.now() - this.startTime}ms`,
-        testEnvironments: [this.options.environment || config.getConfig().environment],
-        testPlanKey: this.options.testPlanKey,
-        version: this.options.version || config.getConfig().version,
-        user: config.getConfig().jiraUsername
-      };
-
-      const testExecutionKey = await xrayClient.createTestExecution({
-        info: executionInfo,
-        tests: results
+      const passedTests = results.filter(r => r.status === 'PASSED').length;
+      const failedTests = results.filter(r => r.status === 'FAILED').length;
+      const skippedTests = results.filter(r => r.status === 'SKIPPED').length;
+      
+      this.logger.info(`Passed: ${passedTests}`);
+      this.logger.info(`Failed: ${failedTests}`);
+      this.logger.info(`Skipped: ${skippedTests}`);
+      this.logger.info('');
+      
+      // Log individual test results
+      results.forEach(test => {
+        const statusIcon = test.status === 'PASSED' ? '✅' : test.status === 'FAILED' ? '❌' : '⏭️';
+        this.logger.info(`${statusIcon} ${test.testKey}: ${test.status} - ${test.comment?.split('\n')[0]}`);
       });
-
-      // Update execution status
-      const hasFailures = results.some(r => r.status === 'FAILED');
-      const finalStatus = hasFailures ? 'FAILED' : 'PASSED';
-      await xrayClient.updateTestExecutionStatus(testExecutionKey, finalStatus);
-
-      this.logger.info(`Successfully reported ${results.length} test results to Xray. Test Execution: ${testExecutionKey}`);
       
-      // Save test execution key to file for reference
+      this.logger.info('=== End Test Execution Summary ===');
+      
+      // Save test results to file for manual review
       if (this.options.outputDir) {
-        const outputFile = path.join(this.options.outputDir, 'xray-execution-key.txt');
-        fs.writeFileSync(outputFile, testExecutionKey);
+        const outputFile = path.join(this.options.outputDir, 'xray-test-results.json');
+        const testResultsData = {
+          timestamp: new Date().toISOString(),
+          project: config.getConfig().projectKey,
+          environment: config.getConfig().environment,
+          version: config.getConfig().version,
+          totalTests: results.length,
+          passed: passedTests,
+          failed: failedTests,
+          skipped: skippedTests,
+          tests: results
+        };
+        
+        fs.writeFileSync(outputFile, JSON.stringify(testResultsData, null, 2));
+        this.logger.info(`Test results saved to: ${outputFile}`);
       }
-
+      
+      this.logger.info('✅ Test execution completed successfully!');
+      this.logger.info('📋 Test results have been logged and saved locally');
+      this.logger.info('🔧 To integrate with Xray, you need admin permissions in the XSP project');
+      
     } catch (error) {
-      this.logger.error(`Failed to report test results to Xray: ${error}`);
+      this.logger.error(`Failed to report test results: ${error}`);
       throw error;
     }
   }
 }
 
-module.exports = XrayReporter;
-
+module.exports = XrayReporterSimple;

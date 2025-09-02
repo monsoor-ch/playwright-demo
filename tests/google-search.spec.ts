@@ -18,7 +18,7 @@ test.describe('Google Search Tests', () => {
     //await googleHomePage.verifyPageLoaded();
   });
 
-  test('PROJ-001: should perform basic Google search', async ({ page }) => {
+  test('XSP-58: should perform basic Google search', async ({ page }) => {
     const searchQuery = 'Playwright automation';
     
     logger.logTestStart(`Basic Google search for: ${searchQuery}`);

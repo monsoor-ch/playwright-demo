@@ -51,7 +51,7 @@ export class XrayClient {
       }
     });
 
-    // Add response interceptor for logging
+    // Add response interceptor for detailed logging
     this.axiosInstance.interceptors.response.use(
       (response) => {
         this.logger.info(`Xray API call successful: ${response.config.method?.toUpperCase()} ${response.config.url}`);
@@ -76,27 +76,84 @@ export class XrayClient {
   }
 
   /**
-   * Find existing test case by key (e.g., PROJ-001)
+   * Find existing test case by key (e.g., XSP-58) in Xray Test Repository
    */
   public async findTestCase(testKey: string): Promise<any> {
     try {
-      const jql = `key = ${testKey} AND issuetype = "Test"`;
+      this.logger.info(`Searching for test case: ${testKey}`);
+      
+      // Search for test case in Xray Test Repository - use simpler JQL
+      const jql = `key = ${testKey}`;
       const response: AxiosResponse = await this.axiosInstance.post('/search', {
         jql: jql,
-        fields: ['key', 'summary', 'status', 'id']
+        fields: ['key', 'summary', 'status', 'id', 'description', 'issuetype']
       });
 
       if (response.data.issues && response.data.issues.length > 0) {
-        this.logger.info(`Found existing test case: ${testKey}`);
+        this.logger.info(`Found existing test case: ${testKey} (Type: ${response.data.issues[0].fields.issuetype.name})`);
         return response.data.issues[0];
       } else {
-        this.logger.warn(`Test case not found: ${testKey}`);
+        this.logger.info(`Test case not found: ${testKey} - will create it`);
         return null;
       }
     } catch (error) {
       this.logger.error(`Failed to find test case ${testKey}: ${error}`);
       return null;
     }
+  }
+
+  /**
+   * Create test case in Xray Test Repository if it doesn't exist
+   */
+  public async createTestCase(testKey: string, testTitle: string, testDescription?: string): Promise<string> {
+    try {
+      this.logger.info(`Creating test case: ${testKey}`);
+      
+      // Use configured project key and 'Test' issue type for XSP project
+      const testCaseData = {
+        fields: {
+          project: {
+            key: this.config.getConfig().projectKey
+          },
+          summary: testTitle,
+          description: testDescription || `Automated test case created by Playwright integration`,
+          issuetype: {
+            name: 'Test'  // Use 'Test' for XSP project
+          },
+          priority: {
+            name: 'Medium'
+          },
+          assignee: {
+            name: this.config.getConfig().jiraUsername
+          }
+        }
+      };
+
+      const response: AxiosResponse = await this.axiosInstance.post('/issue', testCaseData);
+      const createdTestKey = response.data.key;
+      
+      this.logger.info(`Successfully created new test case: ${createdTestKey}`);
+      return createdTestKey;
+    } catch (error) {
+      this.logger.error(`Failed to create test case ${testKey}: ${error}`);
+      throw error;
+    }
+  }
+
+  /**
+   * Ensure test case exists (find or create)
+   */
+  public async ensureTestCaseExists(testKey: string, testTitle: string, testDescription?: string): Promise<string> {
+    let testCase = await this.findTestCase(testKey);
+    
+    if (!testCase) {
+      // Create the test case if it doesn't exist
+      this.logger.info(`Creating test case ${testKey} in Xray Test Repository`);
+      const createdKey = await this.createTestCase(testKey, testTitle, testDescription);
+      testCase = { key: createdKey };
+    }
+    
+    return testCase.key;
   }
 
   /**
@@ -133,23 +190,23 @@ export class XrayClient {
   }
 
   /**
-   * Create test execution using Xray API (only if needed)
+   * Create test execution using Xray API with automatic test case creation
    */
   public async createTestExecution(execution: Omit<XrayTestExecution, 'testExecutionKey'>): Promise<string> {
     try {
-      // First, verify all test cases exist
+      // Ensure all test cases exist in Xray Test Repository
       const existingTestCases = [];
       for (const test of execution.tests) {
-        const testCase = await this.findTestCase(test.testKey);
-        if (testCase) {
-          existingTestCases.push({ ...test, testCaseId: testCase.id });
-        } else {
-          this.logger.warn(`Skipping test ${test.testKey} - test case not found in Jira`);
-        }
+        // Extract test title from comment or use test key as fallback
+        const testTitle = test.comment?.replace(/^Test: /, '') || `Test ${test.testKey}`;
+        const testDescription = `Automated test case for ${test.testKey}`;
+        
+        const testCaseKey = await this.ensureTestCaseExists(test.testKey, testTitle, testDescription);
+        existingTestCases.push({ ...test, testCaseId: testCaseKey });
       }
 
       if (existingTestCases.length === 0) {
-        throw new Error('No existing test cases found to execute');
+        throw new Error('No test cases could be created or found in Xray Test Repository');
       }
 
       // Create test execution using Xray API
