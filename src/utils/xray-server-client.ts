@@ -262,15 +262,16 @@ export class XrayServerClient {
         return false;
       }
 
-      // Step 2: Add test case to Test Execution with status
+      // Step 2: Add test case to Test Execution (create Test Run)
       const testRunKey = await this.addTestCaseToExecution(testExecutionKey, testKey, status, executionTime);
       if (!testRunKey) {
         this.logger.error(`Failed to add test case ${testKey} to execution ${testExecutionKey}`);
         return false;
       }
 
-      // Step 3: Integration complete - Test Run created in Test Execution
-      this.logger.info(`Successfully added test case ${testKey} with status ${status} to execution ${testExecutionKey}`);
+      // Step 3: Integration complete - Test Run created with status in summary
+      // Xray will handle the status management through its workflow
+      this.logger.info(`Successfully created test run ${testRunKey} with status ${status} for test case ${testKey} in execution ${testExecutionKey}`);
       return true;
     } catch (error) {
       this.logger.error(`Failed to update test case ${testKey} status in Xray Server: ${error}`);
@@ -373,31 +374,7 @@ export class XrayServerClient {
     }
   }
 
-  /**
-   * Update test case status in Test Execution
-   */
-  private async updateTestCaseStatusInExecution(testExecutionKey: string, testKey: string, status: string): Promise<boolean> {
-    try {
-      // Map Xray status to Jira status
-      const jiraStatus = this.mapXrayStatusToJira(status);
-      
-      // Update test case status in the Test Execution
-      // This updates the status of the test case within the execution
-      await this.axiosInstance.put(`/issue/${testKey}`, {
-        fields: {
-          status: {
-            name: jiraStatus
-          }
-        }
-      });
-      
-      this.logger.info(`Updated test case ${testKey} status to ${jiraStatus} in execution ${testExecutionKey}`);
-      return true;
-    } catch (error) {
-      this.logger.error(`Failed to update test case status in execution: ${error}`);
-      return false;
-    }
-  }
+
 
 
 
