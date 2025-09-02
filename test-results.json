@@ -102,34 +102,37 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 6030,
+                      "duration": 9830,
                       "errors": [],
                       "stdout": [
                         {
-                          "text": "2025-09-02 05:32:48 [\u001b[32minfo\u001b[39m]: 🧪 Test started: Google Search Test Setup\n"
+                          "text": "2025-09-02 05:37:47 [\u001b[32minfo\u001b[39m]: 🧪 Test started: Google Search Test Setup\n"
                         },
                         {
-                          "text": "2025-09-02 05:32:48 [\u001b[32minfo\u001b[39m]: Navigating to: https://www.google.com\n"
+                          "text": "2025-09-02 05:37:47 [\u001b[32minfo\u001b[39m]: Navigating to: https://www.google.com\n"
                         },
                         {
-                          "text": "2025-09-02 05:32:51 [\u001b[32minfo\u001b[39m]: 🧪 Test started: Basic Google search for: Playwright automation\n"
+                          "text": "2025-09-02 05:37:50 [\u001b[32minfo\u001b[39m]: 🧪 Test started: Basic Google search for: Playwright automation\n"
                         },
                         {
-                          "text": "2025-09-02 05:32:51 [\u001b[32minfo\u001b[39m]: 📝 Step: Performing Google search\n"
+                          "text": "2025-09-02 05:37:50 [\u001b[32minfo\u001b[39m]: 📝 Step: Performing Google search\n"
                         },
                         {
-                          "text": "2025-09-02 05:32:51 [\u001b[32minfo\u001b[39m]: Performing Google search for: Playwright automation\n"
+                          "text": "2025-09-02 05:37:50 [\u001b[32minfo\u001b[39m]: Performing Google search for: Playwright automation\n"
                         },
                         {
-                          "text": "2025-09-02 05:32:51 [\u001b[32minfo\u001b[39m]: Search completed for: Playwright automation\n"
+                          "text": "2025-09-02 05:37:50 [\u001b[32minfo\u001b[39m]: Search completed for: Playwright automation\n"
                         },
                         {
-                          "text": "2025-09-02 05:32:51 [\u001b[32minfo\u001b[39m]: ✅ Test passed: Basic Google search\n"
+                          "text": "2025-09-02 05:37:53 [\u001b[32minfo\u001b[39m]: 📝 Step: Search completed successfully\n"
+                        },
+                        {
+                          "text": "2025-09-02 05:37:53 [\u001b[32minfo\u001b[39m]: ✅ Test passed: Basic Google search\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-09-02T00:02:44.908Z",
+                      "startTime": "2025-09-02T00:07:39.962Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -149,8 +152,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-09-02T00:02:43.348Z",
-    "duration": 9878.48,
+    "startTime": "2025-09-02T00:07:38.372Z",
+    "duration": 17839.15,
     "expected": 1,
     "skipped": 0,
     "unexpected": 0,

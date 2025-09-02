@@ -23,25 +23,21 @@ test.describe('Google Search Tests', () => {
     
     logger.logTestStart(`Basic Google search for: ${searchQuery}`);
 
-    // Perform search
-    logger.logStep('Performing Google search');
-    await googleHomePage.search(searchQuery);
-
-    // // Verify search results page
-    // logger.logStep('Verifying search results');
-    // await googleSearchResultsPage.verifySearchResultsLoaded(searchQuery);
-
-    // // Check that we have results
-    // const resultsCount = await googleSearchResultsPage.getResultsCount();
-    // logger.logAssertion(`Found ${resultsCount} search results`);
-    // expect(resultsCount).toBeGreaterThan(0);
-
-    // // Verify page title contains the search query
-    // const pageTitle = await page.title();
-    // logger.logAssertion(`Page title contains search query`);
-    // expect(pageTitle.toLowerCase()).toContain(searchQuery.toLowerCase());
-
-    logger.logTestEnd('Basic Google search', 'passed');
+    try {
+      // Perform search
+      logger.logStep('Performing Google search');
+      await googleHomePage.search(searchQuery);
+      
+      // Add a small wait to ensure the page loads
+      await page.waitForLoadState('networkidle');
+      
+      logger.logStep('Search completed successfully');
+      logger.logTestEnd('Basic Google search', 'passed');
+    } catch (error) {
+      logger.error(`Test failed: ${error}`);
+      logger.logTestEnd('Basic Google search', 'failed');
+      throw error;
+    }
   });
 
   // test('PROJ-002: should display search suggestions', async ({ page }) => {

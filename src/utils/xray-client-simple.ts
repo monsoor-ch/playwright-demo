@@ -114,22 +114,46 @@ export class XrayClient {
    */
   public async addTestsToExecution(testExecutionKey: string, testResults: XrayTestResult[]): Promise<void> {
     try {
-      // Use the correct Xray API endpoint for adding test results
-      for (const test of testResults) {
-        await this.axiosInstance.post('/execution', {
-          testExecutionKey: testExecutionKey,
-          testKey: test.testKey,
-          status: test.status,
-          comment: test.comment || `Test executed via Playwright automation`,
-          executionTime: test.executionTime || 0
-        });
-      }
+      // Use a more standard approach - add test results as a comment to the issue
+      const testResultsComment = this.formatTestResultsComment(testResults);
+      
+      await this.axiosInstance.post(`/issue/${testExecutionKey}/comment`, {
+        body: testResultsComment
+      });
 
       this.logger.info(`Added ${testResults.length} test results to execution ${testExecutionKey}`);
     } catch (error) {
       this.logger.error(`Failed to add tests to execution ${testExecutionKey}: ${error}`);
       throw error;
     }
+  }
+
+  /**
+   * Format test results as a readable comment
+   */
+  private formatTestResultsComment(testResults: XrayTestResult[]): string {
+    let comment = `## 🧪 Test Execution Results\n\n`;
+    comment += `**Execution Summary:**\n`;
+    comment += `- Total Tests: ${testResults.length}\n`;
+    
+    const passedTests = testResults.filter(t => t.status === 'PASSED').length;
+    const failedTests = testResults.filter(t => t.status === 'FAILED').length;
+    const skippedTests = testResults.filter(t => t.status === 'SKIPPED').length;
+    
+    comment += `- Passed: ${passedTests}\n`;
+    comment += `- Failed: ${failedTests}\n`;
+    comment += `- Skipped: ${skippedTests}\n\n`;
+    
+    comment += `**Test Details:**\n`;
+    testResults.forEach(test => {
+      const statusIcon = test.status === 'PASSED' ? '✅' : test.status === 'FAILED' ? '❌' : '⏭️';
+      comment += `${statusIcon} **${test.testKey}**: ${test.comment || 'Test executed'}\n`;
+      if (test.executionTime) {
+        comment += `  - Duration: ${test.executionTime}ms\n`;
+      }
+    });
+    
+    return comment;
   }
 
   /**
