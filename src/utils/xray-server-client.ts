@@ -271,9 +271,7 @@ export class XrayServerClient {
           },
           assignee: {
             name: this.config.getConfig().jiraUsername
-          },
-          // Link to the test case
-          customfield_10014: [testKey] // This is typically the test case link field in Xray
+          }
         }
       };
 
