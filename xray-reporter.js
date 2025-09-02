@@ -1,4 +1,4 @@
-const { XrayClient } = require('./src/utils/xray-client-simple');
+const { XrayClient } = require('./src/utils/xray-client-correct');
 const { XrayConfigManager } = require('./src/config/xray-config');
 const { Logger } = require('./src/utils/logger');
 const fs = require('fs');
@@ -145,6 +145,13 @@ class XrayReporter {
       const xrayClient = XrayClient.getInstance();
       const config = XrayConfigManager.getInstance();
       
+      // First, try to update existing test case statuses directly
+      this.logger.info('Updating existing test case statuses...');
+      await xrayClient.updateAllTestCaseStatuses(results);
+      
+      // Then create a test execution to track this run
+      this.logger.info('Creating test execution for tracking...');
+
       // Create new test execution
       const executionInfo = {
         summary: `Automated Test Execution - ${new Date().toISOString()}`,
