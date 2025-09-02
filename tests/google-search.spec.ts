@@ -24,17 +24,42 @@ test.describe('Google Search Tests', () => {
     logger.logTestStart(`Basic Google search for: ${searchQuery}`);
 
     try {
+      // Log environment information for debugging
+      logger.logStep('Environment check');
+      logger.info(`Running in CI: ${process.env.CI ? 'Yes' : 'No'}`);
+      logger.info(`Base URL: ${process.env.BASE_URL || 'Not set'}`);
+      
+      // Navigate to Google with explicit wait
+      logger.logStep('Navigating to Google');
+      await page.goto('https://www.google.com', { waitUntil: 'networkidle' });
+      
+      // Wait for page to be fully loaded
+      logger.logStep('Waiting for page load');
+      await page.waitForLoadState('domcontentloaded');
+      
       // Perform search
       logger.logStep('Performing Google search');
       await googleHomePage.search(searchQuery);
       
       // Add a small wait to ensure the page loads
+      logger.logStep('Waiting for search completion');
       await page.waitForLoadState('networkidle');
       
+      // Log success
       logger.logStep('Search completed successfully');
       logger.logTestEnd('Basic Google search', 'passed');
     } catch (error) {
       logger.error(`Test failed: ${error}`);
+      
+      // Take screenshot on failure for debugging
+      try {
+        const screenshotPath = `test-results/failure-${Date.now()}.png`;
+        await page.screenshot({ path: screenshotPath, fullPage: true });
+        logger.error(`Screenshot saved to: ${screenshotPath}`);
+      } catch (screenshotError) {
+        logger.error(`Failed to take screenshot: ${screenshotError}`);
+      }
+      
       logger.logTestEnd('Basic Google search', 'failed');
       throw error;
     }

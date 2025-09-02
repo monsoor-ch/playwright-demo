@@ -1,15 +1,21 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="17.83915">
-<testsuite name="google-search.spec.ts" timestamp="2025-09-02T00:07:38.467Z" hostname="Google Chrome" tests="1" failures="0" skipped="0" time="9.83" errors="0">
-<testcase name="Google Search Tests › PROJ-001: should perform basic Google search" classname="google-search.spec.ts" time="9.83">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="17.017115">
+<testsuite name="google-search.spec.ts" timestamp="2025-09-02T00:13:40.918Z" hostname="Google Chrome" tests="1" failures="0" skipped="0" time="11.642" errors="0">
+<testcase name="Google Search Tests › PROJ-001: should perform basic Google search" classname="google-search.spec.ts" time="11.642">
 <system-out>
-<![CDATA[2025-09-02 05:37:47 [[32minfo[39m]: 🧪 Test started: Google Search Test Setup
-2025-09-02 05:37:47 [[32minfo[39m]: Navigating to: https://www.google.com
-2025-09-02 05:37:50 [[32minfo[39m]: 🧪 Test started: Basic Google search for: Playwright automation
-2025-09-02 05:37:50 [[32minfo[39m]: 📝 Step: Performing Google search
-2025-09-02 05:37:50 [[32minfo[39m]: Performing Google search for: Playwright automation
-2025-09-02 05:37:50 [[32minfo[39m]: Search completed for: Playwright automation
-2025-09-02 05:37:53 [[32minfo[39m]: 📝 Step: Search completed successfully
-2025-09-02 05:37:53 [[32minfo[39m]: ✅ Test passed: Basic Google search
+<![CDATA[2025-09-02 05:43:48 [[32minfo[39m]: 🧪 Test started: Google Search Test Setup
+2025-09-02 05:43:48 [[32minfo[39m]: Navigating to: https://www.google.com
+2025-09-02 05:43:51 [[32minfo[39m]: 🧪 Test started: Basic Google search for: Playwright automation
+2025-09-02 05:43:51 [[32minfo[39m]: 📝 Step: Environment check
+2025-09-02 05:43:51 [[32minfo[39m]: Running in CI: No
+2025-09-02 05:43:51 [[32minfo[39m]: Base URL: Not set
+2025-09-02 05:43:51 [[32minfo[39m]: 📝 Step: Navigating to Google
+2025-09-02 05:43:53 [[32minfo[39m]: 📝 Step: Waiting for page load
+2025-09-02 05:43:53 [[32minfo[39m]: 📝 Step: Performing Google search
+2025-09-02 05:43:53 [[32minfo[39m]: Performing Google search for: Playwright automation
+2025-09-02 05:43:54 [[32minfo[39m]: Search completed for: Playwright automation
+2025-09-02 05:43:54 [[32minfo[39m]: 📝 Step: Waiting for search completion
+2025-09-02 05:43:57 [[32minfo[39m]: 📝 Step: Search completed successfully
+2025-09-02 05:43:57 [[32minfo[39m]: ✅ Test passed: Basic Google search
 ]]>
 </system-out>
 </testcase>
