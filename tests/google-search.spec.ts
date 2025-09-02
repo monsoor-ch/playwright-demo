@@ -20,13 +20,12 @@ test.describe('Google Search Tests', () => {
 
   test('PROJ-001: should perform basic Google search', async ({ page }) => {
     const searchQuery = 'Playwright automation';
-    await test.step('Enter credentials and submit', async () => {
+    
     logger.logTestStart(`Basic Google search for: ${searchQuery}`);
 
     // Perform search
     logger.logStep('Performing Google search');
     await googleHomePage.search(searchQuery);
-  });
 
     // // Verify search results page
     // logger.logStep('Verifying search results');

@@ -1,59 +1,14 @@
-<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="52.952948">
-<testsuite name="google-search.spec.ts" timestamp="2025-09-01T23:47:44.572Z" hostname="Google Chrome" tests="1" failures="1" skipped="0" time="43.225" errors="0">
-<testcase name="Google Search Tests › PROJ-001: should perform basic Google search" classname="google-search.spec.ts" time="43.225">
-<failure message="google-search.spec.ts:21:7 PROJ-001: should perform basic Google search" type="FAILURE">
-<![CDATA[  [Google Chrome] › google-search.spec.ts:21:7 › Google Search Tests › PROJ-001: should perform basic Google search 
-
-    Error: Timed out 30000ms waiting for expect(locator).toBeVisible()
-
-    Locator: locator('#search')
-    Expected: visible
-    Received: <element(s) not found>
-    Call log:
-      - Expect "toBeVisible" with timeout 30000ms
-      - waiting for locator('#search')
-
-
-       at ../src/pages/base/BasePage.ts:130
-
-      128 |    */
-      129 |   async assertElementVisible(locator: Locator, message?: string): Promise<void> {
-    > 130 |     await expect(locator).toBeVisible({ timeout: 30000 });
-          |                           ^
-      131 |     this.logger.debug(message || 'Element visibility assertion passed');
-      132 |   }
-      133 |
-        at GoogleSearchResultsPage.assertElementVisible (/Users/monsoor/Downloads/PlaywrightAutomation/src/pages/base/BasePage.ts:130:27)
-        at GoogleSearchResultsPage.verifySearchResultsLoaded (/Users/monsoor/Downloads/PlaywrightAutomation/src/pages/google/GoogleSearchResultsPage.ts:28:16)
-        at /Users/monsoor/Downloads/PlaywrightAutomation/tests/google-search.spec.ts:32:35
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ../test-results/google-search-Google-Searc-49c75-perform-basic-Google-search-Google-Chrome/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ../test-results/google-search-Google-Searc-49c75-perform-basic-Google-search-Google-Chrome/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ../test-results/google-search-Google-Searc-49c75-perform-basic-Google-search-Google-Chrome/error-context.md
-]]>
-</failure>
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="9.87848">
+<testsuite name="google-search.spec.ts" timestamp="2025-09-02T00:02:43.593Z" hostname="Google Chrome" tests="1" failures="0" skipped="0" time="6.03" errors="0">
+<testcase name="Google Search Tests › PROJ-001: should perform basic Google search" classname="google-search.spec.ts" time="6.03">
 <system-out>
-<![CDATA[2025-09-02 05:17:53 [[32minfo[39m]: 🧪 Test started: Google Search Test Setup
-2025-09-02 05:17:53 [[32minfo[39m]: Navigating to: https://www.google.com
-2025-09-02 05:17:56 [[32minfo[39m]: 🧪 Test started: Basic Google search for: Playwright automation
-2025-09-02 05:17:56 [[32minfo[39m]: 📝 Step: Performing Google search
-2025-09-02 05:17:56 [[32minfo[39m]: Performing Google search for: Playwright automation
-2025-09-02 05:17:56 [[32minfo[39m]: Search completed for: Playwright automation
-2025-09-02 05:17:56 [[32minfo[39m]: 📝 Step: Verifying search results
-2025-09-02 05:18:27 [[32minfo[39m]: ❌ Test failed: PROJ-001: should perform basic Google search
-2025-09-02 05:18:27 [[31merror[39m]: Test failed. Screenshot saved: test-results/failure-PROJ-001:-should-perform-basic-Google-search-1756770507347.png
-
-[[ATTACHMENT|test-results/google-search-Google-Searc-49c75-perform-basic-Google-search-Google-Chrome/test-failed-1.png]]
-
-[[ATTACHMENT|test-results/google-search-Google-Searc-49c75-perform-basic-Google-search-Google-Chrome/video.webm]]
-
-[[ATTACHMENT|test-results/google-search-Google-Searc-49c75-perform-basic-Google-search-Google-Chrome/error-context.md]]
+<![CDATA[2025-09-02 05:32:48 [[32minfo[39m]: 🧪 Test started: Google Search Test Setup
+2025-09-02 05:32:48 [[32minfo[39m]: Navigating to: https://www.google.com
+2025-09-02 05:32:51 [[32minfo[39m]: 🧪 Test started: Basic Google search for: Playwright automation
+2025-09-02 05:32:51 [[32minfo[39m]: 📝 Step: Performing Google search
+2025-09-02 05:32:51 [[32minfo[39m]: Performing Google search for: Playwright automation
+2025-09-02 05:32:51 [[32minfo[39m]: Search completed for: Playwright automation
+2025-09-02 05:32:51 [[32minfo[39m]: ✅ Test passed: Basic Google search
 ]]>
 </system-out>
 </testcase>

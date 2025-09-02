@@ -114,16 +114,16 @@ export class XrayClient {
    */
   public async addTestsToExecution(testExecutionKey: string, testResults: XrayTestResult[]): Promise<void> {
     try {
-      const response: AxiosResponse = await this.axiosInstance.post(`/issue/${testExecutionKey}/attachments`, {
-        testResults: testResults.map(test => ({
+      // Use the correct Xray API endpoint for adding test results
+      for (const test of testResults) {
+        await this.axiosInstance.post('/execution', {
+          testExecutionKey: testExecutionKey,
           testKey: test.testKey,
           status: test.status,
-          comment: test.comment || '',
-          evidence: test.evidence || [],
-          executionTime: test.executionTime || 0,
-          defects: test.defects || []
-        }))
-      });
+          comment: test.comment || `Test executed via Playwright automation`,
+          executionTime: test.executionTime || 0
+        });
+      }
 
       this.logger.info(`Added ${testResults.length} test results to execution ${testExecutionKey}`);
     } catch (error) {

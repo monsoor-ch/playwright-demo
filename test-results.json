@@ -88,7 +88,7 @@
           "specs": [
             {
               "title": "PROJ-001: should perform basic Google search",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -101,86 +101,40 @@
                     {
                       "workerIndex": 0,
                       "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 43225,
-                      "error": {
-                        "message": "Error: \u001b[31mTimed out 30000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('#search')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for locator('#search')\u001b[22m\n",
-                        "stack": "Error: \u001b[31mTimed out 30000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('#search')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for locator('#search')\u001b[22m\n\n    at GoogleSearchResultsPage.assertElementVisible (/Users/monsoor/Downloads/PlaywrightAutomation/src/pages/base/BasePage.ts:130:27)\n    at GoogleSearchResultsPage.verifySearchResultsLoaded (/Users/monsoor/Downloads/PlaywrightAutomation/src/pages/google/GoogleSearchResultsPage.ts:28:16)\n    at /Users/monsoor/Downloads/PlaywrightAutomation/tests/google-search.spec.ts:32:35",
-                        "location": {
-                          "file": "/Users/monsoor/Downloads/PlaywrightAutomation/src/pages/base/BasePage.ts",
-                          "column": 27,
-                          "line": 130
-                        },
-                        "snippet": "\u001b[90m   at \u001b[39m../src/pages/base/BasePage.ts:130\n\n\u001b[0m \u001b[90m 128 |\u001b[39m \u001b[90m   */\u001b[39m\n \u001b[90m 129 |\u001b[39m   \u001b[36masync\u001b[39m assertElementVisible(locator\u001b[33m:\u001b[39m \u001b[33mLocator\u001b[39m\u001b[33m,\u001b[39m message\u001b[33m?\u001b[39m\u001b[33m:\u001b[39m string)\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 130 |\u001b[39m     \u001b[36mawait\u001b[39m expect(locator)\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[35m30000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 131 |\u001b[39m     \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mlogger\u001b[33m.\u001b[39mdebug(message \u001b[33m||\u001b[39m \u001b[32m'Element visibility assertion passed'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 132 |\u001b[39m   }\n \u001b[90m 133 |\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/Users/monsoor/Downloads/PlaywrightAutomation/src/pages/base/BasePage.ts",
-                            "column": 27,
-                            "line": 130
-                          },
-                          "message": "Error: \u001b[31mTimed out 30000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('#search')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 30000ms\u001b[22m\n\u001b[2m  - waiting for locator('#search')\u001b[22m\n\n\n\u001b[90m   at \u001b[39m../src/pages/base/BasePage.ts:130\n\n\u001b[0m \u001b[90m 128 |\u001b[39m \u001b[90m   */\u001b[39m\n \u001b[90m 129 |\u001b[39m   \u001b[36masync\u001b[39m assertElementVisible(locator\u001b[33m:\u001b[39m \u001b[33mLocator\u001b[39m\u001b[33m,\u001b[39m message\u001b[33m?\u001b[39m\u001b[33m:\u001b[39m string)\u001b[33m:\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m<\u001b[39m\u001b[36mvoid\u001b[39m\u001b[33m>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 130 |\u001b[39m     \u001b[36mawait\u001b[39m expect(locator)\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[35m30000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 131 |\u001b[39m     \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mlogger\u001b[33m.\u001b[39mdebug(message \u001b[33m||\u001b[39m \u001b[32m'Element visibility assertion passed'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 132 |\u001b[39m   }\n \u001b[90m 133 |\u001b[39m\u001b[0m\n\u001b[2m    at GoogleSearchResultsPage.assertElementVisible (/Users/monsoor/Downloads/PlaywrightAutomation/src/pages/base/BasePage.ts:130:27)\u001b[22m\n\u001b[2m    at GoogleSearchResultsPage.verifySearchResultsLoaded (/Users/monsoor/Downloads/PlaywrightAutomation/src/pages/google/GoogleSearchResultsPage.ts:28:16)\u001b[22m\n\u001b[2m    at /Users/monsoor/Downloads/PlaywrightAutomation/tests/google-search.spec.ts:32:35\u001b[22m"
-                        }
-                      ],
+                      "status": "passed",
+                      "duration": 6030,
+                      "errors": [],
                       "stdout": [
                         {
-                          "text": "2025-09-02 05:17:53 [\u001b[32minfo\u001b[39m]: 🧪 Test started: Google Search Test Setup\n"
+                          "text": "2025-09-02 05:32:48 [\u001b[32minfo\u001b[39m]: 🧪 Test started: Google Search Test Setup\n"
                         },
                         {
-                          "text": "2025-09-02 05:17:53 [\u001b[32minfo\u001b[39m]: Navigating to: https://www.google.com\n"
+                          "text": "2025-09-02 05:32:48 [\u001b[32minfo\u001b[39m]: Navigating to: https://www.google.com\n"
                         },
                         {
-                          "text": "2025-09-02 05:17:56 [\u001b[32minfo\u001b[39m]: 🧪 Test started: Basic Google search for: Playwright automation\n"
+                          "text": "2025-09-02 05:32:51 [\u001b[32minfo\u001b[39m]: 🧪 Test started: Basic Google search for: Playwright automation\n"
                         },
                         {
-                          "text": "2025-09-02 05:17:56 [\u001b[32minfo\u001b[39m]: 📝 Step: Performing Google search\n"
+                          "text": "2025-09-02 05:32:51 [\u001b[32minfo\u001b[39m]: 📝 Step: Performing Google search\n"
                         },
                         {
-                          "text": "2025-09-02 05:17:56 [\u001b[32minfo\u001b[39m]: Performing Google search for: Playwright automation\n"
+                          "text": "2025-09-02 05:32:51 [\u001b[32minfo\u001b[39m]: Performing Google search for: Playwright automation\n"
                         },
                         {
-                          "text": "2025-09-02 05:17:56 [\u001b[32minfo\u001b[39m]: Search completed for: Playwright automation\n"
+                          "text": "2025-09-02 05:32:51 [\u001b[32minfo\u001b[39m]: Search completed for: Playwright automation\n"
                         },
                         {
-                          "text": "2025-09-02 05:17:56 [\u001b[32minfo\u001b[39m]: 📝 Step: Verifying search results\n"
-                        },
-                        {
-                          "text": "2025-09-02 05:18:27 [\u001b[32minfo\u001b[39m]: ❌ Test failed: PROJ-001: should perform basic Google search\n"
-                        },
-                        {
-                          "text": "2025-09-02 05:18:27 [\u001b[31merror\u001b[39m]: Test failed. Screenshot saved: test-results/failure-PROJ-001:-should-perform-basic-Google-search-1756770507347.png\n"
+                          "text": "2025-09-02 05:32:51 [\u001b[32minfo\u001b[39m]: ✅ Test passed: Basic Google search\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-09-01T23:47:46.920Z",
+                      "startTime": "2025-09-02T00:02:44.908Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "/Users/monsoor/Downloads/PlaywrightAutomation/test-results/google-search-Google-Searc-49c75-perform-basic-Google-search-Google-Chrome/test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "/Users/monsoor/Downloads/PlaywrightAutomation/test-results/google-search-Google-Searc-49c75-perform-basic-Google-search-Google-Chrome/video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/Users/monsoor/Downloads/PlaywrightAutomation/test-results/google-search-Google-Searc-49c75-perform-basic-Google-search-Google-Chrome/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/Users/monsoor/Downloads/PlaywrightAutomation/src/pages/base/BasePage.ts",
-                        "column": 27,
-                        "line": 130
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "f7c69dd1c4df8f675c6b-2da620d91308cdadf83a",
@@ -195,11 +149,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-09-01T23:47:44.424Z",
-    "duration": 52952.948,
-    "expected": 0,
+    "startTime": "2025-09-02T00:02:43.348Z",
+    "duration": 9878.48,
+    "expected": 1,
     "skipped": 0,
-    "unexpected": 1,
+    "unexpected": 0,
     "flaky": 0
   }
 }
