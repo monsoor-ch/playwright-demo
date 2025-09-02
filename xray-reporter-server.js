@@ -149,15 +149,14 @@ class XrayReporterServer {
         }
       }
       
-      // Step 2: Update test case statuses with proper test executions
+      // Step 2: Update test case statuses with proper test executions (no comments)
       this.logger.info('Updating test case statuses with test executions in Xray Server...');
       let statusSuccessCount = 0;
       for (const test of results) {
         const success = await xrayClient.updateTestCaseStatus(
           test.testKey, 
           test.status, 
-          test.executionTime, 
-          test.comment
+          test.executionTime
         );
         if (success) statusSuccessCount++;
       }

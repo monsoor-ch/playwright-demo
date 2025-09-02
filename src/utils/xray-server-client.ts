@@ -247,7 +247,7 @@ export class XrayServerClient {
   /**
    * Update test case status in Xray Server using proper test execution
    */
-  public async updateTestCaseStatus(testKey: string, status: 'PASSED' | 'FAILED' | 'SKIPPED' | 'TODO' | 'EXECUTING', executionTime?: number, comment?: string): Promise<boolean> {
+  public async updateTestCaseStatus(testKey: string, status: 'PASSED' | 'FAILED' | 'SKIPPED' | 'TODO' | 'EXECUTING', executionTime?: number): Promise<boolean> {
     try {
       const testCase = await this.findTestCase(testKey);
       if (!testCase) {
@@ -262,7 +262,7 @@ export class XrayServerClient {
             key: this.config.getConfig().projectKey
           },
           summary: `Test Execution: ${testKey} - ${status}`,
-          description: `Automated test execution from Playwright\n\nTest: ${testKey}\nStatus: ${status}\nExecution Time: ${executionTime || 0}ms\nTimestamp: ${new Date().toISOString()}\n\n${comment || 'Test executed via Playwright automation'}`,
+          description: `Automated test execution from Playwright\n\nTest: ${testKey}\nStatus: ${status}\nExecution Time: ${executionTime || 0}ms\nTimestamp: ${new Date().toISOString()}\n\nTest executed via Playwright automation`,
           issuetype: {
             name: 'Test Execution'
           },
@@ -281,9 +281,6 @@ export class XrayServerClient {
       if (response.data && response.data.key) {
         const testExecutionKey = response.data.key;
         this.logger.info(`Created test execution ${testExecutionKey} for test case ${testKey} with status ${status}`);
-        
-        // Add execution result as comment to the test case
-        await this.addTestExecutionComment(testKey, status, executionTime, comment);
         
         return true;
       } else {
@@ -322,36 +319,13 @@ export class XrayServerClient {
   public async updateAllTestCaseStatuses(testResults: XrayTestResult[]): Promise<void> {
     let successCount = 0;
     for (const test of testResults) {
-      const success = await this.updateTestCaseStatus(test.testKey, test.status, test.executionTime, test.comment);
+      const success = await this.updateTestCaseStatus(test.testKey, test.status, test.executionTime);
       if (success) successCount++;
     }
     this.logger.info(`Updated statuses for ${successCount}/${testResults.length} test cases in Xray Server`);
   }
 
-  /**
-   * Add comment to test case in Xray Server
-   */
-  public async addTestExecutionComment(testKey: string, status: string, executionTime: number, comment?: string): Promise<boolean> {
-    try {
-      const testCase = await this.findTestCase(testKey);
-      if (!testCase) {
-        this.logger.warn(`Cannot add comment - test case not found in Xray Server: ${testKey}`);
-        return false;
-      }
 
-      // Add comment using Jira REST API
-      const executionComment = {
-        body: `## 🧪 Test Execution Result\n\n**Status**: ${status}\n**Execution Time**: ${executionTime}ms\n**Timestamp**: ${new Date().toISOString()}\n\n${comment || 'Test executed via Playwright automation'}`
-      };
-
-      await this.axiosInstance.post(`/issue/${testKey}/comment`, executionComment);
-      this.logger.info(`Added execution comment to test case ${testKey} in Xray Server`);
-      return true;
-    } catch (error) {
-      this.logger.error(`Failed to add comment to test case ${testKey} in Xray Server: ${error}`);
-      return false;
-    }
-  }
 
   /**
    * Create test execution in Xray Server
@@ -403,11 +377,6 @@ export class XrayServerClient {
       if (response.data && response.data.key) {
         const testExecutionKey = response.data.key;
         this.logger.info(`Created test execution in Xray Server: ${testExecutionKey}`);
-        
-        // Add test results as comments or custom fields
-        for (const test of existingTestCases) {
-          await this.addTestExecutionComment(test.testKey, test.status, test.executionTime, test.comment);
-        }
         
         return testExecutionKey;
       } else {
