@@ -1,0 +1,180 @@
+{
+  "config": {
+    "configFile": "/Users/monsoor/Downloads/PlaywrightAutomation/playwright.config.ts",
+    "rootDir": "/Users/monsoor/Downloads/PlaywrightAutomation/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": "/Users/monsoor/Downloads/PlaywrightAutomation/src/config/global-setup.ts",
+    "globalTeardown": "/Users/monsoor/Downloads/PlaywrightAutomation/src/config/global-teardown.ts",
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "html",
+        {
+          "outputFolder": "playwright-report"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "test-results.xml"
+        }
+      ],
+      [
+        "/Users/monsoor/Downloads/PlaywrightAutomation/xray-reporter.js",
+        {
+          "outputDir": "test-results",
+          "environment": "Test",
+          "version": "1.0.0"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/monsoor/Downloads/PlaywrightAutomation/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "Google Chrome",
+        "name": "Google Chrome",
+        "testDir": "/Users/monsoor/Downloads/PlaywrightAutomation/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.54.1",
+    "workers": 6,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "google-search.spec.ts",
+      "file": "google-search.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Google Search Tests",
+          "file": "google-search.spec.ts",
+          "line": 6,
+          "column": 6,
+          "specs": [
+            {
+              "title": "PROJ-001: should perform basic Google search",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Google Chrome",
+                  "projectName": "Google Chrome",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 11642,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "2025-09-02 05:43:48 [\u001b[32minfo\u001b[39m]: 🧪 Test started: Google Search Test Setup\n"
+                        },
+                        {
+                          "text": "2025-09-02 05:43:48 [\u001b[32minfo\u001b[39m]: Navigating to: https://www.google.com\n"
+                        },
+                        {
+                          "text": "2025-09-02 05:43:51 [\u001b[32minfo\u001b[39m]: 🧪 Test started: Basic Google search for: Playwright automation\n"
+                        },
+                        {
+                          "text": "2025-09-02 05:43:51 [\u001b[32minfo\u001b[39m]: 📝 Step: Environment check\n"
+                        },
+                        {
+                          "text": "2025-09-02 05:43:51 [\u001b[32minfo\u001b[39m]: Running in CI: No\n"
+                        },
+                        {
+                          "text": "2025-09-02 05:43:51 [\u001b[32minfo\u001b[39m]: Base URL: Not set\n"
+                        },
+                        {
+                          "text": "2025-09-02 05:43:51 [\u001b[32minfo\u001b[39m]: 📝 Step: Navigating to Google\n"
+                        },
+                        {
+                          "text": "2025-09-02 05:43:53 [\u001b[32minfo\u001b[39m]: 📝 Step: Waiting for page load\n"
+                        },
+                        {
+                          "text": "2025-09-02 05:43:53 [\u001b[32minfo\u001b[39m]: 📝 Step: Performing Google search\n"
+                        },
+                        {
+                          "text": "2025-09-02 05:43:53 [\u001b[32minfo\u001b[39m]: Performing Google search for: Playwright automation\n"
+                        },
+                        {
+                          "text": "2025-09-02 05:43:54 [\u001b[32minfo\u001b[39m]: Search completed for: Playwright automation\n"
+                        },
+                        {
+                          "text": "2025-09-02 05:43:54 [\u001b[32minfo\u001b[39m]: 📝 Step: Waiting for search completion\n"
+                        },
+                        {
+                          "text": "2025-09-02 05:43:57 [\u001b[32minfo\u001b[39m]: 📝 Step: Search completed successfully\n"
+                        },
+                        {
+                          "text": "2025-09-02 05:43:57 [\u001b[32minfo\u001b[39m]: ✅ Test passed: Basic Google search\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-09-02T00:13:42.044Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f7c69dd1c4df8f675c6b-2da620d91308cdadf83a",
+              "file": "google-search.spec.ts",
+              "line": 21,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-09-02T00:13:40.739Z",
+    "duration": 17017.115,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,647 @@
+{"level":"info","message":"Global setup completed","timestamp":"2025-07-17 12:57:17"}
+{"level":"info","message":"Running tests in local environment","timestamp":"2025-07-17 12:57:17"}
+{"level":"info","message":"Base URL: undefined","timestamp":"2025-07-17 12:57:17"}
+{"level":"info","message":"Global teardown completed","timestamp":"2025-07-17 12:57:44"}
+{"level":"info","message":"Test execution finished","timestamp":"2025-07-17 12:57:44"}
+{"level":"info","message":"Global setup completed","timestamp":"2025-07-17 12:58:02"}
+{"level":"info","message":"Running tests in local environment","timestamp":"2025-07-17 12:58:02"}
+{"level":"info","message":"Base URL: undefined","timestamp":"2025-07-17 12:58:02"}
+{"level":"info","message":"Test log message","timestamp":"2025-07-17 12:58:06"}
+{"level":"warn","message":"Warning message","timestamp":"2025-07-17 12:58:06"}
+{"level":"info","message":"Test log message","timestamp":"2025-07-17 12:58:07"}
+{"level":"warn","message":"Warning message","timestamp":"2025-07-17 12:58:07"}
+{"level":"info","message":"Test log message","timestamp":"2025-07-17 12:58:09"}
+{"level":"warn","message":"Warning message","timestamp":"2025-07-17 12:58:09"}
+{"level":"info","message":"Global teardown completed","timestamp":"2025-07-17 12:58:14"}
+{"level":"info","message":"Test execution finished","timestamp":"2025-07-17 12:58:14"}
+{"level":"info","message":"Global setup completed","timestamp":"2025-07-17 12:59:38"}
+{"level":"info","message":"Running tests in local environment","timestamp":"2025-07-17 12:59:38"}
+{"level":"info","message":"Base URL: undefined","timestamp":"2025-07-17 12:59:38"}
+{"level":"info","message":"Global teardown completed","timestamp":"2025-07-17 12:59:51"}
+{"level":"info","message":"Test execution finished","timestamp":"2025-07-17 12:59:51"}
+{"level":"info","message":"Global setup completed","timestamp":"2025-07-17 13:06:02"}
+{"level":"info","message":"Running tests in local environment","timestamp":"2025-07-17 13:06:02"}
+{"level":"info","message":"Base URL: undefined","timestamp":"2025-07-17 13:06:02"}
+{"level":"info","message":"Test log message","timestamp":"2025-07-17 13:06:03"}
+{"level":"info","message":"Test log message","timestamp":"2025-07-17 13:06:06"}
+{"level":"warn","message":"Warning message","timestamp":"2025-07-17 13:06:06"}
+{"level":"info","message":"Test log message","timestamp":"2025-07-17 13:06:07"}
+{"level":"warn","message":"Warning message","timestamp":"2025-07-17 13:06:07"}
+{"level":"info","message":"Global setup completed","timestamp":"2025-07-17 13:06:07"}
+{"level":"info","message":"Running tests in local environment","timestamp":"2025-07-17 13:06:07"}
+{"level":"info","message":"Base URL: undefined","timestamp":"2025-07-17 13:06:07"}
+{"level":"info","message":"Test log message","timestamp":"2025-07-17 13:06:11"}
+{"level":"warn","message":"Warning message","timestamp":"2025-07-17 13:06:11"}
+{"level":"info","message":"Test log message","timestamp":"2025-07-17 13:06:12"}
+{"level":"warn","message":"Warning message","timestamp":"2025-07-17 13:06:12"}
+{"level":"info","message":"Global teardown completed","timestamp":"2025-07-17 13:06:12"}
+{"level":"info","message":"Test execution finished","timestamp":"2025-07-17 13:06:12"}
+{"level":"info","message":"Test log message","timestamp":"2025-07-17 13:06:14"}
+{"level":"warn","message":"Warning message","timestamp":"2025-07-17 13:06:14"}
+{"level":"info","message":"Test log message","timestamp":"2025-07-17 13:06:17"}
+{"level":"warn","message":"Warning message","timestamp":"2025-07-17 13:06:17"}
+{"level":"info","message":"Test log message","timestamp":"2025-07-17 13:06:20"}
+{"level":"warn","message":"Warning message","timestamp":"2025-07-17 13:06:20"}
+{"level":"info","message":"Test log message","timestamp":"2025-07-17 13:06:22"}
+{"level":"warn","message":"Warning message","timestamp":"2025-07-17 13:06:22"}
+{"level":"info","message":"Test log message","timestamp":"2025-07-17 13:06:25"}
+{"level":"warn","message":"Warning message","timestamp":"2025-07-17 13:06:25"}
+{"level":"info","message":"Test log message","timestamp":"2025-07-17 13:06:27"}
+{"level":"warn","message":"Warning message","timestamp":"2025-07-17 13:06:27"}
+{"level":"info","message":"Global teardown completed","timestamp":"2025-07-17 13:06:29"}
+{"level":"info","message":"Test execution finished","timestamp":"2025-07-17 13:06:29"}
+{"level":"info","message":"Global setup completed","timestamp":"2025-07-17 13:07:32"}
+{"level":"info","message":"Running tests in local environment","timestamp":"2025-07-17 13:07:32"}
+{"level":"info","message":"Base URL: undefined","timestamp":"2025-07-17 13:07:32"}
+{"level":"info","message":"Test log message","timestamp":"2025-07-17 13:07:34"}
+{"level":"warn","message":"Warning message","timestamp":"2025-07-17 13:07:34"}
+{"level":"info","message":"Global setup completed","timestamp":"2025-07-17 13:07:48"}
+{"level":"info","message":"Running tests in local environment","timestamp":"2025-07-17 13:07:48"}
+{"level":"info","message":"Base URL: undefined","timestamp":"2025-07-17 13:07:48"}
+{"level":"info","message":"Global teardown completed","timestamp":"2025-07-17 13:07:50"}
+{"level":"info","message":"Test execution finished","timestamp":"2025-07-17 13:07:50"}
+{"level":"info","message":"Global setup completed","timestamp":"2025-07-17 13:09:29"}
+{"level":"info","message":"Running tests in local environment","timestamp":"2025-07-17 13:09:29"}
+{"level":"info","message":"Base URL: undefined","timestamp":"2025-07-17 13:09:29"}
+{"level":"info","message":"Global setup completed","timestamp":"2025-07-17 13:09:30"}
+{"level":"info","message":"Running tests in local environment","timestamp":"2025-07-17 13:09:30"}
+{"level":"info","message":"Base URL: undefined","timestamp":"2025-07-17 13:09:30"}
+{"level":"info","message":"Global teardown completed","timestamp":"2025-07-17 13:09:32"}
+{"level":"info","message":"Test execution finished","timestamp":"2025-07-17 13:09:32"}
+{"level":"info","message":"Test log message","timestamp":"2025-07-17 13:09:33"}
+{"level":"info","message":"Test log message","timestamp":"2025-07-17 13:09:34"}
+{"level":"warn","message":"Warning message","timestamp":"2025-07-17 13:09:34"}
+{"level":"info","message":"Test log message","timestamp":"2025-07-17 13:09:37"}
+{"level":"info","message":"Test log message","timestamp":"2025-07-17 13:09:38"}
+{"level":"warn","message":"Warning message","timestamp":"2025-07-17 13:09:38"}
+{"level":"info","message":"Global teardown completed","timestamp":"2025-07-17 13:09:39"}
+{"level":"info","message":"Test execution finished","timestamp":"2025-07-17 13:09:39"}
+{"level":"info","message":"Global setup completed","timestamp":"2025-07-17 13:10:37"}
+{"level":"info","message":"Running tests in local environment","timestamp":"2025-07-17 13:10:37"}
+{"level":"info","message":"Base URL: undefined","timestamp":"2025-07-17 13:10:37"}
+{"level":"info","message":"Test log message","timestamp":"2025-07-17 13:10:39"}
+{"level":"info","message":"Test log message","timestamp":"2025-07-17 13:10:44"}
+{"level":"warn","message":"Warning message","timestamp":"2025-07-17 13:10:44"}
+{"level":"info","message":"Test log message","timestamp":"2025-07-17 13:10:45"}
+{"level":"info","message":"Global teardown completed","timestamp":"2025-07-17 13:10:45"}
+{"level":"info","message":"Test execution finished","timestamp":"2025-07-17 13:10:45"}
+{"level":"info","message":"Global setup completed","timestamp":"2025-07-17 13:10:47"}
+{"level":"info","message":"Running tests in local environment","timestamp":"2025-07-17 13:10:47"}
+{"level":"info","message":"Base URL: undefined","timestamp":"2025-07-17 13:10:47"}
+{"level":"info","message":"Global teardown completed","timestamp":"2025-07-17 13:10:54"}
+{"level":"info","message":"Test execution finished","timestamp":"2025-07-17 13:10:54"}
+{"level":"info","message":"Global setup completed","timestamp":"2025-07-17 13:11:41"}
+{"level":"info","message":"Running tests in local environment","timestamp":"2025-07-17 13:11:41"}
+{"level":"info","message":"Base URL: undefined","timestamp":"2025-07-17 13:11:41"}
+{"level":"info","message":"Test log message","timestamp":"2025-07-17 13:11:45"}
+{"level":"warn","message":"Warning message","timestamp":"2025-07-17 13:11:45"}
+{"level":"info","message":"Global teardown completed","timestamp":"2025-07-17 13:11:48"}
+{"level":"info","message":"Test execution finished","timestamp":"2025-07-17 13:11:48"}
+{"level":"info","message":"Global setup completed","timestamp":"2025-07-17 13:11:50"}
+{"level":"info","message":"Running tests in local environment","timestamp":"2025-07-17 13:11:50"}
+{"level":"info","message":"Base URL: undefined","timestamp":"2025-07-17 13:11:50"}
+{"level":"info","message":"Global teardown completed","timestamp":"2025-07-17 13:11:56"}
+{"level":"info","message":"Test execution finished","timestamp":"2025-07-17 13:11:56"}
+{"level":"info","message":"Global setup completed","timestamp":"2025-07-17 13:13:02"}
+{"level":"info","message":"Running tests in local environment","timestamp":"2025-07-17 13:13:02"}
+{"level":"info","message":"Base URL: undefined","timestamp":"2025-07-17 13:13:02"}
+{"level":"info","message":"Test log message","timestamp":"2025-07-17 13:13:03"}
+{"level":"warn","message":"Warning message","timestamp":"2025-07-17 13:13:03"}
+{"level":"info","message":"Test log message","timestamp":"2025-07-17 13:13:04"}
+{"level":"warn","message":"Warning message","timestamp":"2025-07-17 13:13:04"}
+{"level":"info","message":"Global teardown completed","timestamp":"2025-07-17 13:13:10"}
+{"level":"info","message":"Test execution finished","timestamp":"2025-07-17 13:13:10"}
+{"level":"info","message":"Global setup completed","timestamp":"2025-07-17 13:20:45"}
+{"level":"info","message":"Running tests in local environment","timestamp":"2025-07-17 13:20:45"}
+{"level":"info","message":"Base URL: undefined","timestamp":"2025-07-17 13:20:45"}
+{"level":"info","message":"Global teardown completed","timestamp":"2025-07-17 13:20:53"}
+{"level":"info","message":"Test execution finished","timestamp":"2025-07-17 13:20:53"}
+{"level":"info","message":"Global setup completed","timestamp":"2025-07-17 18:58:33"}
+{"level":"info","message":"Running tests in local environment","timestamp":"2025-07-17 18:58:33"}
+{"level":"info","message":"Base URL: undefined","timestamp":"2025-07-17 18:58:33"}
+{"level":"info","message":"Global teardown completed","timestamp":"2025-07-17 18:58:37"}
+{"level":"info","message":"Test execution finished","timestamp":"2025-07-17 18:58:37"}
+{"level":"info","message":"Global setup completed","timestamp":"2025-07-17 19:02:32"}
+{"level":"info","message":"Running tests in local environment","timestamp":"2025-07-17 19:02:32"}
+{"level":"info","message":"Base URL: undefined","timestamp":"2025-07-17 19:02:32"}
+{"level":"info","message":"Global teardown completed","timestamp":"2025-07-17 19:02:47"}
+{"level":"info","message":"Test execution finished","timestamp":"2025-07-17 19:02:47"}
+{"level":"info","message":"Global setup completed","timestamp":"2025-07-17 19:04:06"}
+{"level":"info","message":"Running tests in local environment","timestamp":"2025-07-17 19:04:06"}
+{"level":"info","message":"Base URL: undefined","timestamp":"2025-07-17 19:04:06"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:04:12"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:04:12"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:04:12"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:04:12"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:04:12"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:04:12"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:04:12"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:04:12"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:04:12"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:04:12"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:04:15"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:04:15"}
+{"level":"info","message":"❌ Test failed: should display search suggestions","timestamp":"2025-07-17 19:04:45"}
+{"level":"info","message":"❌ Test failed: should validate search results contain expected content","timestamp":"2025-07-17 19:04:45"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-display-search-suggestions-1752759285568.png","timestamp":"2025-07-17 19:04:45"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-validate-search-results-contain-expected-content-1752759285570.png","timestamp":"2025-07-17 19:04:45"}
+{"level":"info","message":"❌ Test failed: should perform multiple searches","timestamp":"2025-07-17 19:04:45"}
+{"level":"info","message":"❌ Test failed: should perform basic Google search","timestamp":"2025-07-17 19:04:45"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-multiple-searches-1752759285729.png","timestamp":"2025-07-17 19:04:45"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-basic-Google-search-1752759285808.png","timestamp":"2025-07-17 19:04:45"}
+{"level":"info","message":"❌ Test failed: should navigate to first search result","timestamp":"2025-07-17 19:04:46"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-navigate-to-first-search-result-1752759286219.png","timestamp":"2025-07-17 19:04:46"}
+{"level":"info","message":"❌ Test failed: should perform basic Google search","timestamp":"2025-07-17 19:04:48"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-basic-Google-search-1752759288257.png","timestamp":"2025-07-17 19:04:48"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:04:52"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:04:52"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:04:54"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:04:54"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:04:55"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:04:55"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:04:57"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:04:57"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:05:04"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:05:04"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:05:04"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:05:04"}
+{"level":"info","message":"❌ Test failed: should display search suggestions","timestamp":"2025-07-17 19:05:26"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-display-search-suggestions-1752759326220.png","timestamp":"2025-07-17 19:05:26"}
+{"level":"info","message":"❌ Test failed: should perform multiple searches","timestamp":"2025-07-17 19:05:26"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-multiple-searches-1752759326973.png","timestamp":"2025-07-17 19:05:27"}
+{"level":"info","message":"❌ Test failed: should navigate to first search result","timestamp":"2025-07-17 19:05:28"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-navigate-to-first-search-result-1752759328983.png","timestamp":"2025-07-17 19:05:29"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:05:29"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:05:29"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:05:30"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:05:30"}
+{"level":"info","message":"❌ Test failed: should validate search results contain expected content","timestamp":"2025-07-17 19:05:30"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-validate-search-results-contain-expected-content-1752759330711.png","timestamp":"2025-07-17 19:05:30"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:05:34"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:05:34"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:05:35"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:05:35"}
+{"level":"info","message":"❌ Test failed: should perform basic Google search","timestamp":"2025-07-17 19:05:37"}
+{"level":"info","message":"❌ Test failed: should display search suggestions","timestamp":"2025-07-17 19:05:37"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-basic-Google-search-1752759337373.png","timestamp":"2025-07-17 19:05:37"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-display-search-suggestions-1752759337382.png","timestamp":"2025-07-17 19:05:37"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:05:40"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:05:40"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:05:40"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:05:40"}
+{"level":"info","message":"❌ Test failed: should navigate to first search result","timestamp":"2025-07-17 19:06:02"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-navigate-to-first-search-result-1752759362869.png","timestamp":"2025-07-17 19:06:03"}
+{"level":"info","message":"❌ Test failed: should perform multiple searches","timestamp":"2025-07-17 19:06:03"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-multiple-searches-1752759363539.png","timestamp":"2025-07-17 19:06:03"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:06:04"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:06:04"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:06:05"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:06:05"}
+{"level":"info","message":"❌ Test failed: should validate search results contain expected content","timestamp":"2025-07-17 19:06:07"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-validate-search-results-contain-expected-content-1752759367267.png","timestamp":"2025-07-17 19:06:07"}
+{"level":"info","message":"❌ Test failed: should perform basic Google search","timestamp":"2025-07-17 19:06:08"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-basic-Google-search-1752759368383.png","timestamp":"2025-07-17 19:06:08"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:06:09"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:06:09"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:06:11"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:06:11"}
+{"level":"info","message":"❌ Test failed: should navigate to first search result","timestamp":"2025-07-17 19:06:13"}
+{"level":"info","message":"❌ Test failed: should display search suggestions","timestamp":"2025-07-17 19:06:13"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-navigate-to-first-search-result-1752759373004.png","timestamp":"2025-07-17 19:06:13"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-display-search-suggestions-1752759373028.png","timestamp":"2025-07-17 19:06:13"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:06:16"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:06:16"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:06:16"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:06:16"}
+{"level":"info","message":"❌ Test failed: should perform multiple searches","timestamp":"2025-07-17 19:06:37"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-multiple-searches-1752759397263.png","timestamp":"2025-07-17 19:06:37"}
+{"level":"info","message":"❌ Test failed: should validate search results contain expected content","timestamp":"2025-07-17 19:06:37"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-validate-search-results-contain-expected-content-1752759397803.png","timestamp":"2025-07-17 19:06:38"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:06:40"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:06:40"}
+{"level":"info","message":"❌ Test failed: should perform basic Google search","timestamp":"2025-07-17 19:06:40"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-basic-Google-search-1752759400947.png","timestamp":"2025-07-17 19:06:41"}
+{"level":"info","message":"❌ Test failed: should display search suggestions","timestamp":"2025-07-17 19:06:43"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-display-search-suggestions-1752759403302.png","timestamp":"2025-07-17 19:06:43"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:06:45"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:06:45"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:06:46"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:06:46"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:06:46"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:06:46"}
+{"level":"info","message":"❌ Test failed: should navigate to first search result","timestamp":"2025-07-17 19:06:48"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-navigate-to-first-search-result-1752759408411.png","timestamp":"2025-07-17 19:06:48"}
+{"level":"info","message":"❌ Test failed: should perform multiple searches","timestamp":"2025-07-17 19:06:49"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-multiple-searches-1752759409113.png","timestamp":"2025-07-17 19:06:49"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:06:51"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:06:51"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:06:51"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:06:51"}
+{"level":"info","message":"❌ Test failed: should validate search results contain expected content","timestamp":"2025-07-17 19:07:12"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-validate-search-results-contain-expected-content-1752759432835.png","timestamp":"2025-07-17 19:07:12"}
+{"level":"info","message":"❌ Test failed: should perform basic Google search","timestamp":"2025-07-17 19:07:19"}
+{"level":"info","message":"❌ Test failed: should display search suggestions","timestamp":"2025-07-17 19:07:19"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-basic-Google-search-1752759439306.png","timestamp":"2025-07-17 19:07:19"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-display-search-suggestions-1752759439316.png","timestamp":"2025-07-17 19:07:19"}
+{"level":"info","message":"❌ Test failed: should navigate to first search result","timestamp":"2025-07-17 19:07:19"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-navigate-to-first-search-result-1752759439544.png","timestamp":"2025-07-17 19:07:19"}
+{"level":"info","message":"❌ Test failed: should perform multiple searches","timestamp":"2025-07-17 19:07:24"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-multiple-searches-1752759444295.png","timestamp":"2025-07-17 19:07:24"}
+{"level":"info","message":"❌ Test failed: should validate search results contain expected content","timestamp":"2025-07-17 19:07:25"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-validate-search-results-contain-expected-content-1752759445258.png","timestamp":"2025-07-17 19:07:25"}
+{"level":"info","message":"Global teardown completed","timestamp":"2025-07-17 19:07:33"}
+{"level":"info","message":"Test execution finished","timestamp":"2025-07-17 19:07:33"}
+{"level":"info","message":"Global setup completed","timestamp":"2025-07-17 19:09:53"}
+{"level":"info","message":"Running tests in local environment","timestamp":"2025-07-17 19:09:53"}
+{"level":"info","message":"Base URL: undefined","timestamp":"2025-07-17 19:09:53"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:09:56"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:09:56"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:09:56"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:09:56"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:09:56"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:09:56"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:09:56"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:09:56"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:09:56"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:09:56"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:10:02"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:10:02"}
+{"level":"info","message":"❌ Test failed: should perform multiple searches","timestamp":"2025-07-17 19:10:29"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-multiple-searches-1752759629906.png","timestamp":"2025-07-17 19:10:30"}
+{"level":"info","message":"❌ Test failed: should perform basic Google search","timestamp":"2025-07-17 19:10:30"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-basic-Google-search-1752759630079.png","timestamp":"2025-07-17 19:10:30"}
+{"level":"info","message":"❌ Test failed: should display search suggestions","timestamp":"2025-07-17 19:10:30"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-display-search-suggestions-1752759630290.png","timestamp":"2025-07-17 19:10:30"}
+{"level":"info","message":"❌ Test failed: should validate search results contain expected content","timestamp":"2025-07-17 19:10:30"}
+{"level":"info","message":"❌ Test failed: should navigate to first search result","timestamp":"2025-07-17 19:10:30"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-validate-search-results-contain-expected-content-1752759630485.png","timestamp":"2025-07-17 19:10:30"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-navigate-to-first-search-result-1752759630603.png","timestamp":"2025-07-17 19:10:30"}
+{"level":"info","message":"❌ Test failed: should perform basic Google search","timestamp":"2025-07-17 19:10:35"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-basic-Google-search-1752759635052.png","timestamp":"2025-07-17 19:10:35"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:10:39"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:10:39"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:10:39"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:10:39"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:10:43"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:10:43"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:10:47"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:10:47"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:10:51"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:10:51"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:10:53"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:10:53"}
+{"level":"info","message":"❌ Test failed: should perform basic Google search","timestamp":"2025-07-17 19:11:13"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-basic-Google-search-1752759673426.png","timestamp":"2025-07-17 19:11:13"}
+{"level":"info","message":"❌ Test failed: should display search suggestions","timestamp":"2025-07-17 19:11:13"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-display-search-suggestions-1752759673894.png","timestamp":"2025-07-17 19:11:14"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:11:18"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:11:18"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:11:18"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:11:18"}
+{"level":"info","message":"❌ Test failed: should display search suggestions","timestamp":"2025-07-17 19:11:20"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-display-search-suggestions-1752759680952.png","timestamp":"2025-07-17 19:11:21"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:11:24"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:11:24"}
+{"level":"info","message":"❌ Test failed: should perform multiple searches","timestamp":"2025-07-17 19:11:24"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-multiple-searches-1752759684793.png","timestamp":"2025-07-17 19:11:24"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:11:28"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:11:28"}
+{"level":"info","message":"❌ Test failed: should navigate to first search result","timestamp":"2025-07-17 19:11:29"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-navigate-to-first-search-result-1752759689363.png","timestamp":"2025-07-17 19:11:29"}
+{"level":"info","message":"❌ Test failed: should validate search results contain expected content","timestamp":"2025-07-17 19:11:30"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-validate-search-results-contain-expected-content-1752759690659.png","timestamp":"2025-07-17 19:11:30"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:11:33"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:11:33"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:11:34"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:11:34"}
+{"level":"info","message":"❌ Test failed: should navigate to first search result","timestamp":"2025-07-17 19:11:51"}
+{"level":"info","message":"❌ Test failed: should perform multiple searches","timestamp":"2025-07-17 19:11:51"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-navigate-to-first-search-result-1752759711009.png","timestamp":"2025-07-17 19:11:51"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-multiple-searches-1752759711093.png","timestamp":"2025-07-17 19:11:51"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:11:53"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:11:53"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:11:53"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:11:53"}
+{"level":"info","message":"❌ Test failed: should validate search results contain expected content","timestamp":"2025-07-17 19:11:57"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-validate-search-results-contain-expected-content-1752759717848.png","timestamp":"2025-07-17 19:11:58"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:12:00"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:12:00"}
+{"level":"info","message":"❌ Test failed: should perform basic Google search","timestamp":"2025-07-17 19:12:01"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-basic-Google-search-1752759721463.png","timestamp":"2025-07-17 19:12:01"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:12:05"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:12:05"}
+{"level":"info","message":"❌ Test failed: should display search suggestions","timestamp":"2025-07-17 19:12:06"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-display-search-suggestions-1752759726379.png","timestamp":"2025-07-17 19:12:06"}
+{"level":"info","message":"❌ Test failed: should navigate to first search result","timestamp":"2025-07-17 19:12:07"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-navigate-to-first-search-result-1752759727317.png","timestamp":"2025-07-17 19:12:07"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:12:12"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:12:12"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:12:13"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:12:13"}
+{"level":"info","message":"❌ Test failed: should perform multiple searches","timestamp":"2025-07-17 19:12:26"}
+{"level":"info","message":"❌ Test failed: should validate search results contain expected content","timestamp":"2025-07-17 19:12:26"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-multiple-searches-1752759746579.png","timestamp":"2025-07-17 19:12:27"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-validate-search-results-contain-expected-content-1752759746605.png","timestamp":"2025-07-17 19:12:27"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:12:31"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:12:31"}
+{"level":"info","message":"❌ Test failed: should perform basic Google search","timestamp":"2025-07-17 19:12:32"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-basic-Google-search-1752759752785.png","timestamp":"2025-07-17 19:12:32"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:12:37"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:12:37"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:12:37"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:12:37"}
+{"level":"info","message":"❌ Test failed: should display search suggestions","timestamp":"2025-07-17 19:12:38"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-display-search-suggestions-1752759758554.png","timestamp":"2025-07-17 19:12:38"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:12:41"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:12:41"}
+{"level":"info","message":"❌ Test failed: should navigate to first search result","timestamp":"2025-07-17 19:12:44"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-navigate-to-first-search-result-1752759764923.png","timestamp":"2025-07-17 19:12:45"}
+{"level":"info","message":"❌ Test failed: should perform multiple searches","timestamp":"2025-07-17 19:12:45"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-multiple-searches-1752759765761.png","timestamp":"2025-07-17 19:12:45"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:12:47"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:12:47"}
+{"level":"info","message":"Global teardown completed","timestamp":"2025-07-17 19:12:49"}
+{"level":"info","message":"Test execution finished","timestamp":"2025-07-17 19:12:49"}
+{"level":"info","message":"Global setup completed","timestamp":"2025-07-17 19:33:43"}
+{"level":"info","message":"Running tests in local environment","timestamp":"2025-07-17 19:33:43"}
+{"level":"info","message":"Base URL: undefined","timestamp":"2025-07-17 19:33:43"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:33:45"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:33:45"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:33:45"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:33:45"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:33:45"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:33:45"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:33:45"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:33:45"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:33:45"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:33:45"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:33:49"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:33:49"}
+{"level":"info","message":"❌ Test failed: should display search suggestions","timestamp":"2025-07-17 19:34:18"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-display-search-suggestions-1752761058223.png","timestamp":"2025-07-17 19:34:18"}
+{"level":"info","message":"❌ Test failed: should perform basic Google search","timestamp":"2025-07-17 19:34:18"}
+{"level":"info","message":"❌ Test failed: should navigate to first search result","timestamp":"2025-07-17 19:34:18"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-basic-Google-search-1752761058402.png","timestamp":"2025-07-17 19:34:18"}
+{"level":"info","message":"❌ Test failed: should validate search results contain expected content","timestamp":"2025-07-17 19:34:18"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-navigate-to-first-search-result-1752761058463.png","timestamp":"2025-07-17 19:34:18"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-validate-search-results-contain-expected-content-1752761058586.png","timestamp":"2025-07-17 19:34:18"}
+{"level":"info","message":"❌ Test failed: should perform multiple searches","timestamp":"2025-07-17 19:34:19"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-multiple-searches-1752761059022.png","timestamp":"2025-07-17 19:34:19"}
+{"level":"info","message":"❌ Test failed: should perform basic Google search","timestamp":"2025-07-17 19:34:22"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-basic-Google-search-1752761062664.png","timestamp":"2025-07-17 19:34:22"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:34:24"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:34:24"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:34:25"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:34:25"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:34:26"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:34:26"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:34:28"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:34:28"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:34:30"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:34:30"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:34:31"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:34:31"}
+{"level":"info","message":"❌ Test failed: should perform basic Google search","timestamp":"2025-07-17 19:34:57"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-basic-Google-search-1752761097548.png","timestamp":"2025-07-17 19:34:57"}
+{"level":"info","message":"❌ Test failed: should display search suggestions","timestamp":"2025-07-17 19:34:58"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-display-search-suggestions-1752761098987.png","timestamp":"2025-07-17 19:34:59"}
+{"level":"info","message":"❌ Test failed: should display search suggestions","timestamp":"2025-07-17 19:34:59"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-display-search-suggestions-1752761099234.png","timestamp":"2025-07-17 19:34:59"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:34:59"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:34:59"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:35:01"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:35:01"}
+{"level":"info","message":"❌ Test failed: should validate search results contain expected content","timestamp":"2025-07-17 19:35:01"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-validate-search-results-contain-expected-content-1752761101611.png","timestamp":"2025-07-17 19:35:01"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:35:02"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:35:02"}
+{"level":"info","message":"❌ Test failed: should navigate to first search result","timestamp":"2025-07-17 19:35:03"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-navigate-to-first-search-result-1752761103818.png","timestamp":"2025-07-17 19:35:03"}
+{"level":"info","message":"❌ Test failed: should perform multiple searches","timestamp":"2025-07-17 19:35:04"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-multiple-searches-1752761104687.png","timestamp":"2025-07-17 19:35:04"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:35:04"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:35:04"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:35:06"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:35:06"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:35:07"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:35:07"}
+{"level":"info","message":"❌ Test failed: should navigate to first search result","timestamp":"2025-07-17 19:35:32"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-navigate-to-first-search-result-1752761132520.png","timestamp":"2025-07-17 19:35:32"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:35:34"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:35:34"}
+{"level":"info","message":"❌ Test failed: should perform multiple searches","timestamp":"2025-07-17 19:35:34"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-multiple-searches-1752761134210.png","timestamp":"2025-07-17 19:35:34"}
+{"level":"info","message":"❌ Test failed: should validate search results contain expected content","timestamp":"2025-07-17 19:35:35"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-validate-search-results-contain-expected-content-1752761135274.png","timestamp":"2025-07-17 19:35:35"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:35:36"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:35:36"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:35:37"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:35:37"}
+{"level":"info","message":"❌ Test failed: should perform basic Google search","timestamp":"2025-07-17 19:35:37"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-basic-Google-search-1752761137830.png","timestamp":"2025-07-17 19:35:38"}
+{"level":"info","message":"❌ Test failed: should display search suggestions","timestamp":"2025-07-17 19:35:39"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-display-search-suggestions-1752761139983.png","timestamp":"2025-07-17 19:35:40"}
+{"level":"info","message":"❌ Test failed: should navigate to first search result","timestamp":"2025-07-17 19:35:40"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-navigate-to-first-search-result-1752761140731.png","timestamp":"2025-07-17 19:35:41"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:35:41"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:35:41"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:35:43"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:35:43"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:35:44"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:35:44"}
+{"level":"info","message":"❌ Test failed: should perform multiple searches","timestamp":"2025-07-17 19:36:06"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-multiple-searches-1752761166966.png","timestamp":"2025-07-17 19:36:07"}
+{"level":"info","message":"❌ Test failed: should validate search results contain expected content","timestamp":"2025-07-17 19:36:08"}
+{"level":"info","message":"❌ Test failed: should perform basic Google search","timestamp":"2025-07-17 19:36:09"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-validate-search-results-contain-expected-content-1752761168911.png","timestamp":"2025-07-17 19:36:09"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-basic-Google-search-1752761169219.png","timestamp":"2025-07-17 19:36:09"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:36:10"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:36:10"}
+{"level":"info","message":"❌ Test failed: should display search suggestions","timestamp":"2025-07-17 19:36:13"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-display-search-suggestions-1752761173038.png","timestamp":"2025-07-17 19:36:13"}
+{"level":"info","message":"❌ Test failed: should navigate to first search result","timestamp":"2025-07-17 19:36:15"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-navigate-to-first-search-result-1752761175253.png","timestamp":"2025-07-17 19:36:15"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:36:15"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:36:15"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:36:15"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:36:15"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:36:15"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:36:15"}
+{"level":"info","message":"❌ Test failed: should perform multiple searches","timestamp":"2025-07-17 19:36:17"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-multiple-searches-1752761177256.png","timestamp":"2025-07-17 19:36:17"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:36:18"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:36:18"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-17 19:36:19"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-17 19:36:19"}
+{"level":"info","message":"❌ Test failed: should validate search results contain expected content","timestamp":"2025-07-17 19:36:43"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-validate-search-results-contain-expected-content-1752761203542.png","timestamp":"2025-07-17 19:36:43"}
+{"level":"info","message":"❌ Test failed: should navigate to first search result","timestamp":"2025-07-17 19:36:47"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-navigate-to-first-search-result-1752761207963.png","timestamp":"2025-07-17 19:36:48"}
+{"level":"info","message":"❌ Test failed: should display search suggestions","timestamp":"2025-07-17 19:36:48"}
+{"level":"info","message":"❌ Test failed: should perform basic Google search","timestamp":"2025-07-17 19:36:48"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-display-search-suggestions-1752761208458.png","timestamp":"2025-07-17 19:36:48"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-basic-Google-search-1752761208545.png","timestamp":"2025-07-17 19:36:48"}
+{"level":"info","message":"❌ Test failed: should perform multiple searches","timestamp":"2025-07-17 19:36:50"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-multiple-searches-1752761210508.png","timestamp":"2025-07-17 19:36:50"}
+{"level":"info","message":"❌ Test failed: should validate search results contain expected content","timestamp":"2025-07-17 19:36:52"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-validate-search-results-contain-expected-content-1752761212459.png","timestamp":"2025-07-17 19:36:52"}
+{"level":"info","message":"Global teardown completed","timestamp":"2025-07-17 21:02:33"}
+{"level":"info","message":"Test execution finished","timestamp":"2025-07-17 21:02:33"}
+{"level":"info","message":"Global setup completed","timestamp":"2025-07-18 03:11:33"}
+{"level":"info","message":"Running tests in local environment","timestamp":"2025-07-18 03:11:33"}
+{"level":"info","message":"Base URL: undefined","timestamp":"2025-07-18 03:11:33"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-18 03:11:38"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-18 03:11:38"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-18 03:11:38"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-18 03:11:39"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-18 03:11:38"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-18 03:11:39"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-18 03:11:38"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-18 03:11:38"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-18 03:11:38"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-18 03:11:38"}
+{"level":"info","message":"❌ Test failed: should navigate to first search result","timestamp":"2025-07-18 03:12:12"}
+{"level":"info","message":"❌ Test failed: should perform multiple searches","timestamp":"2025-07-18 03:12:12"}
+{"level":"info","message":"❌ Test failed: should display search suggestions","timestamp":"2025-07-18 03:12:12"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-navigate-to-first-search-result-1752788532168.png","timestamp":"2025-07-18 03:12:12"}
+{"level":"info","message":"❌ Test failed: should perform basic Google search","timestamp":"2025-07-18 03:12:12"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-multiple-searches-1752788532218.png","timestamp":"2025-07-18 03:12:12"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-display-search-suggestions-1752788532253.png","timestamp":"2025-07-18 03:12:12"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-basic-Google-search-1752788532337.png","timestamp":"2025-07-18 03:12:12"}
+{"level":"info","message":"❌ Test failed: should validate search results contain expected content","timestamp":"2025-07-18 03:12:12"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-validate-search-results-contain-expected-content-1752788532497.png","timestamp":"2025-07-18 03:12:12"}
+{"level":"info","message":"Global teardown completed","timestamp":"2025-07-18 03:18:10"}
+{"level":"info","message":"Test execution finished","timestamp":"2025-07-18 03:18:10"}
+{"level":"info","message":"Global setup completed","timestamp":"2025-07-18 03:19:06"}
+{"level":"info","message":"Running tests in local environment","timestamp":"2025-07-18 03:19:06"}
+{"level":"info","message":"Base URL: undefined","timestamp":"2025-07-18 03:19:06"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-18 03:19:12"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-18 03:19:12"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-18 03:19:12"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-18 03:19:12"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-18 03:19:12"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-18 03:19:12"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-18 03:19:12"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-18 03:19:12"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-18 03:19:12"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-18 03:19:12"}
+{"level":"info","message":"❌ Test failed: should validate search results contain expected content","timestamp":"2025-07-18 03:19:45"}
+{"level":"info","message":"❌ Test failed: should navigate to first search result","timestamp":"2025-07-18 03:19:45"}
+{"level":"info","message":"❌ Test failed: should perform basic Google search","timestamp":"2025-07-18 03:19:46"}
+{"level":"info","message":"❌ Test failed: should display search suggestions","timestamp":"2025-07-18 03:19:46"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-validate-search-results-contain-expected-content-1752788985878.png","timestamp":"2025-07-18 03:19:46"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-navigate-to-first-search-result-1752788985961.png","timestamp":"2025-07-18 03:19:46"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-basic-Google-search-1752788986083.png","timestamp":"2025-07-18 03:19:46"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-display-search-suggestions-1752788986098.png","timestamp":"2025-07-18 03:19:46"}
+{"level":"info","message":"❌ Test failed: should perform multiple searches","timestamp":"2025-07-18 03:19:46"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-multiple-searches-1752788986373.png","timestamp":"2025-07-18 03:19:46"}
+{"level":"info","message":"Global teardown completed","timestamp":"2025-07-18 03:24:58"}
+{"level":"info","message":"Test execution finished","timestamp":"2025-07-18 03:24:58"}
+{"level":"info","message":"Global setup completed","timestamp":"2025-07-18 03:25:51"}
+{"level":"info","message":"Running tests in local environment","timestamp":"2025-07-18 03:25:51"}
+{"level":"info","message":"Base URL: undefined","timestamp":"2025-07-18 03:25:51"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-18 03:25:55"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-18 03:25:55"}
+{"level":"info","message":"❌ Test failed: should perform basic Google search","timestamp":"2025-07-18 03:26:28"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-basic-Google-search-1752789388040.png","timestamp":"2025-07-18 03:26:28"}
+{"level":"info","message":"Global teardown completed","timestamp":"2025-07-18 03:26:28"}
+{"level":"info","message":"Test execution finished","timestamp":"2025-07-18 03:26:28"}
+{"level":"info","message":"Global setup completed","timestamp":"2025-07-18 03:49:15"}
+{"level":"info","message":"Running tests in local environment","timestamp":"2025-07-18 03:49:15"}
+{"level":"info","message":"Base URL: undefined","timestamp":"2025-07-18 03:49:15"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-18 03:49:18"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-18 03:49:18"}
+{"level":"info","message":"🧪 Test started: Basic Google search for: Playwright automation","timestamp":"2025-07-18 03:49:20"}
+{"level":"info","message":"📝 Step: Performing Google search","timestamp":"2025-07-18 03:49:20"}
+{"level":"info","message":"Performing Google search for: Playwright automation","timestamp":"2025-07-18 03:49:20"}
+{"level":"info","message":"❌ Test failed: should perform basic Google search","timestamp":"2025-07-18 03:49:51"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-basic-Google-search-1752790791062.png","timestamp":"2025-07-18 03:49:51"}
+{"level":"info","message":"Global teardown completed","timestamp":"2025-07-18 03:49:52"}
+{"level":"info","message":"Test execution finished","timestamp":"2025-07-18 03:49:52"}
+{"level":"info","message":"Global setup completed","timestamp":"2025-07-18 03:54:21"}
+{"level":"info","message":"Running tests in local environment","timestamp":"2025-07-18 03:54:21"}
+{"level":"info","message":"Base URL: undefined","timestamp":"2025-07-18 03:54:21"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-18 03:54:24"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-18 03:54:24"}
+{"level":"info","message":"🧪 Test started: Basic Google search for: Playwright automation","timestamp":"2025-07-18 03:54:27"}
+{"level":"info","message":"📝 Step: Performing Google search","timestamp":"2025-07-18 03:54:27"}
+{"level":"info","message":"Performing Google search for: Playwright automation","timestamp":"2025-07-18 03:54:27"}
+{"level":"info","message":"❌ Test failed: should perform basic Google search","timestamp":"2025-07-18 03:54:57"}
+{"level":"error","message":"Test failed. Screenshot saved: test-results/failure-should-perform-basic-Google-search-1752791097169.png","timestamp":"2025-07-18 03:54:57"}
+{"level":"info","message":"Global teardown completed","timestamp":"2025-07-18 03:54:57"}
+{"level":"info","message":"Test execution finished","timestamp":"2025-07-18 03:54:57"}
+{"level":"info","message":"Global setup completed","timestamp":"2025-07-18 03:58:53"}
+{"level":"info","message":"Running tests in local environment","timestamp":"2025-07-18 03:58:53"}
+{"level":"info","message":"Base URL: undefined","timestamp":"2025-07-18 03:58:53"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-18 03:58:56"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-18 03:58:56"}
+{"level":"info","message":"🧪 Test started: Basic Google search for: Playwright automation","timestamp":"2025-07-18 03:58:58"}
+{"level":"info","message":"📝 Step: Performing Google search","timestamp":"2025-07-18 03:58:58"}
+{"level":"info","message":"Performing Google search for: Playwright automation","timestamp":"2025-07-18 03:58:58"}
+{"level":"info","message":"Search completed for: Playwright automation","timestamp":"2025-07-18 03:58:59"}
+{"level":"info","message":"📝 Step: Verifying search results","timestamp":"2025-07-18 03:58:59"}
+{"level":"info","message":"❌ Test failed: should perform basic Google search","timestamp":"2025-07-18 03:59:14"}
+{"level":"info","message":"Global teardown completed","timestamp":"2025-07-18 03:59:28"}
+{"level":"info","message":"Test execution finished","timestamp":"2025-07-18 03:59:28"}
+{"level":"info","message":"Global setup completed","timestamp":"2025-07-18 04:00:05"}
+{"level":"info","message":"Running tests in local environment","timestamp":"2025-07-18 04:00:05"}
+{"level":"info","message":"Base URL: undefined","timestamp":"2025-07-18 04:00:05"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-18 04:00:08"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-18 04:00:08"}
+{"level":"info","message":"🧪 Test started: Basic Google search for: Playwright automation","timestamp":"2025-07-18 04:00:10"}
+{"level":"info","message":"📝 Step: Performing Google search","timestamp":"2025-07-18 04:00:10"}
+{"level":"info","message":"Performing Google search for: Playwright automation","timestamp":"2025-07-18 04:00:10"}
+{"level":"info","message":"Search completed for: Playwright automation","timestamp":"2025-07-18 04:00:11"}
+{"level":"info","message":"✅ Test passed: Basic Google search","timestamp":"2025-07-18 04:00:11"}
+{"level":"info","message":"Global teardown completed","timestamp":"2025-07-18 04:00:11"}
+{"level":"info","message":"Test execution finished","timestamp":"2025-07-18 04:00:11"}
+{"level":"info","message":"Global setup completed","timestamp":"2025-07-18 04:13:32"}
+{"level":"info","message":"Running tests in local environment","timestamp":"2025-07-18 04:13:32"}
+{"level":"info","message":"Base URL: undefined","timestamp":"2025-07-18 04:13:32"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-18 04:13:35"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-18 04:13:35"}
+{"level":"info","message":"🧪 Test started: Basic Google search for: Playwright automation","timestamp":"2025-07-18 04:13:38"}
+{"level":"info","message":"📝 Step: Performing Google search","timestamp":"2025-07-18 04:13:38"}
+{"level":"info","message":"Performing Google search for: Playwright automation","timestamp":"2025-07-18 04:13:38"}
+{"level":"info","message":"Search completed for: Playwright automation","timestamp":"2025-07-18 04:13:38"}
+{"level":"info","message":"✅ Test passed: Basic Google search","timestamp":"2025-07-18 04:13:38"}
+{"level":"info","message":"Global teardown completed","timestamp":"2025-07-18 04:13:39"}
+{"level":"info","message":"Test execution finished","timestamp":"2025-07-18 04:13:39"}
+{"level":"info","message":"Global setup completed","timestamp":"2025-07-18 04:17:07"}
+{"level":"info","message":"Running tests in local environment","timestamp":"2025-07-18 04:17:07"}
+{"level":"info","message":"Base URL: undefined","timestamp":"2025-07-18 04:17:07"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-18 04:17:11"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-18 04:17:11"}
+{"level":"info","message":"🧪 Test started: Basic Google search for: Playwright automation","timestamp":"2025-07-18 04:17:13"}
+{"level":"info","message":"📝 Step: Performing Google search","timestamp":"2025-07-18 04:17:13"}
+{"level":"info","message":"Performing Google search for: Playwright automation","timestamp":"2025-07-18 04:17:13"}
+{"level":"info","message":"Search completed for: Playwright automation","timestamp":"2025-07-18 04:17:14"}
+{"level":"info","message":"✅ Test passed: Basic Google search","timestamp":"2025-07-18 04:17:14"}
+{"level":"info","message":"Global teardown completed","timestamp":"2025-07-18 04:17:15"}
+{"level":"info","message":"Test execution finished","timestamp":"2025-07-18 04:17:15"}
+{"level":"info","message":"Global setup completed","timestamp":"2025-07-18 04:19:32"}
+{"level":"info","message":"Running tests in local environment","timestamp":"2025-07-18 04:19:32"}
+{"level":"info","message":"Base URL: undefined","timestamp":"2025-07-18 04:19:32"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-07-18 04:19:35"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-07-18 04:19:35"}
+{"level":"info","message":"🧪 Test started: Basic Google search for: Playwright automation","timestamp":"2025-07-18 04:19:37"}
+{"level":"info","message":"📝 Step: Performing Google search","timestamp":"2025-07-18 04:19:37"}
+{"level":"info","message":"Performing Google search for: Playwright automation","timestamp":"2025-07-18 04:19:37"}
+{"level":"info","message":"Search completed for: Playwright automation","timestamp":"2025-07-18 04:19:38"}
+{"level":"info","message":"✅ Test passed: Basic Google search","timestamp":"2025-07-18 04:19:38"}
+{"level":"info","message":"Global teardown completed","timestamp":"2025-07-18 04:19:38"}
+{"level":"info","message":"Test execution finished","timestamp":"2025-07-18 04:19:38"}
+{"level":"info","message":"Global setup completed","timestamp":"2025-09-02 03:08:01"}
+{"level":"info","message":"Running tests in local environment","timestamp":"2025-09-02 03:08:01"}
+{"level":"info","message":"Base URL: undefined","timestamp":"2025-09-02 03:08:01"}
+{"level":"info","message":"Test log message","timestamp":"2025-09-02 03:08:06"}
+{"level":"warn","message":"Warning message","timestamp":"2025-09-02 03:08:06"}
+{"level":"info","message":"🧪 Test started: Google Search Test Setup","timestamp":"2025-09-02 03:08:17"}
+{"level":"info","message":"Navigating to: https://www.google.com","timestamp":"2025-09-02 03:08:17"}
+{"level":"info","message":"🧪 Test started: Basic Google search for: Playwright automation","timestamp":"2025-09-02 03:08:21"}
+{"level":"info","message":"📝 Step: Performing Google search","timestamp":"2025-09-02 03:08:21"}
+{"level":"info","message":"Performing Google search for: Playwright automation","timestamp":"2025-09-02 03:08:21"}
+{"level":"info","message":"Search completed for: Playwright automation","timestamp":"2025-09-02 03:08:22"}
+{"level":"info","message":"✅ Test passed: Basic Google search","timestamp":"2025-09-02 03:08:22"}
+{"level":"info","message":"Global teardown completed","timestamp":"2025-09-02 03:08:24"}
+{"level":"info","message":"Test execution finished","timestamp":"2025-09-02 03:08:24"}
