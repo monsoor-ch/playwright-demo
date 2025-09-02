@@ -93,5 +93,5 @@ jobs:
         JIRA_REPORTER: GitHub Actions
       run: |
         # Run tests with Xray reporter to send results
-        npx playwright test --reporter=./xray-reporter.js
+        npx playwright test --reporter=./xray-reporter-simple.js --project="Google Chrome"
 
