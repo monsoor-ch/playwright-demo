@@ -245,7 +245,7 @@ export class XrayServerClient {
   }
 
   /**
-   * Update test case status in Xray Server using proper test execution
+   * Update test case status in Xray Server using Test Runs
    */
   public async updateTestCaseStatus(testKey: string, status: 'PASSED' | 'FAILED' | 'SKIPPED' | 'TODO' | 'EXECUTING', executionTime?: number): Promise<boolean> {
     try {
@@ -255,14 +255,14 @@ export class XrayServerClient {
         return false;
       }
 
-      // Create a test execution for this specific test case
-      const executionData = {
+      // Create a Test Execution for this specific test case
+      const testExecutionData = {
         fields: {
           project: {
             key: this.config.getConfig().projectKey
           },
           summary: `Test Execution: ${testKey} - ${status}`,
-          description: `Automated test execution from Playwright\n\nTest: ${testKey}\nStatus: ${status}\nExecution Time: ${executionTime || 0}ms\nTimestamp: ${new Date().toISOString()}\n\nTest executed via Playwright automation`,
+          description: `Automated test run from Playwright\n\nTest: ${testKey}\nStatus: ${status}\nExecution Time: ${executionTime || 0}ms\nTimestamp: ${new Date().toISOString()}\n\nTest executed via Playwright automation`,
           issuetype: {
             name: 'Test Execution'
           },
@@ -276,7 +276,7 @@ export class XrayServerClient {
       };
 
       // Create the test execution
-      const response: AxiosResponse = await this.axiosInstance.post('/issue', executionData);
+      const response: AxiosResponse = await this.axiosInstance.post('/issue', testExecutionData);
       
       if (response.data && response.data.key) {
         const testExecutionKey = response.data.key;
@@ -347,12 +347,12 @@ export class XrayServerClient {
       }
 
       if (existingTestCases.length === 0) {
-        this.logger.warn('No test cases could be created in Xray Server for execution');
+        this.logger.warn('No test cases could be created in Xray Server for test execution');
         return null;
       }
 
       // Create test execution using Jira REST API
-      const executionData = {
+      const testExecutionData = {
         fields: {
           project: {
             key: this.config.getConfig().projectKey
@@ -372,7 +372,7 @@ export class XrayServerClient {
       };
 
       // Create the test execution issue
-      const response: AxiosResponse = await this.axiosInstance.post('/issue', executionData);
+      const response: AxiosResponse = await this.axiosInstance.post('/issue', testExecutionData);
       
       if (response.data && response.data.key) {
         const testExecutionKey = response.data.key;

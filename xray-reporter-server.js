@@ -187,7 +187,7 @@ class XrayReporterServer {
       if (statusSuccessCount > 0) {
         this.logger.info(`🎉 Successfully integrated with Xray Server! Created ${statusSuccessCount} test executions`);
       } else {
-        this.logger.info(`📋 Integration completed - test cases processed but no executions created`);
+        this.logger.info(`📋 Integration completed - test cases processed but no test executions created`);
       }
       
     } catch (error) {
