@@ -99,6 +99,72 @@ export class XrayServerClient {
   }
 
   /**
+   * Find test case by matching Playwright test description with Xray summary
+   */
+  public async findTestCaseByDescription(testDescription: string): Promise<any> {
+    try {
+      this.logger.info(`Searching for test case by description in Xray Server: ${testDescription.substring(0, 50)}...`);
+      
+      // Search for test cases in the project with matching summary
+      const jql = `project = ${this.config.getConfig().projectKey} AND issuetype = "Test" AND summary ~ "${testDescription.replace(/"/g, '\\"')}"`;
+      
+      const response: AxiosResponse = await this.axiosInstance.post('/search', {
+        jql: jql,
+        maxResults: 10,
+        fields: ['key', 'summary', 'description', 'status', 'issuetype']
+      });
+      
+      if (response.data.issues && response.data.issues.length > 0) {
+        // Find the best match (exact or closest)
+        const bestMatch = response.data.issues.find((issue: any) => 
+          issue.fields.summary.toLowerCase().trim() === testDescription.toLowerCase().trim()
+        ) || response.data.issues[0];
+        
+        this.logger.info(`Found matching test case by description: ${bestMatch.key} - ${bestMatch.fields.summary}`);
+        return bestMatch;
+      } else {
+        this.logger.info(`No test case found matching description: ${testDescription}`);
+        return null;
+      }
+    } catch (error) {
+      this.logger.error(`Failed to search test case by description: ${error}`);
+      return null;
+    }
+  }
+
+  /**
+   * Update test case summary if it differs from Playwright description
+   */
+  public async updateTestCaseSummary(testKey: string, newSummary: string): Promise<boolean> {
+    try {
+      const testCase = await this.findTestCase(testKey);
+      if (!testCase) {
+        this.logger.warn(`Cannot update summary - test case not found: ${testKey}`);
+        return false;
+      }
+
+      const currentSummary = testCase.fields.summary;
+      if (currentSummary === newSummary) {
+        this.logger.info(`Test case ${testKey} summary is already up to date`);
+        return true;
+      }
+
+      // Update the summary
+      await this.axiosInstance.put(`/issue/${testKey}`, {
+        fields: {
+          summary: newSummary
+        }
+      });
+
+      this.logger.info(`Updated test case ${testKey} summary from "${currentSummary}" to "${newSummary}"`);
+      return true;
+    } catch (error) {
+      this.logger.error(`Failed to update test case ${testKey} summary: ${error}`);
+      return false;
+    }
+  }
+
+  /**
    * Create test case in Xray Server (Jira plugin)
    */
   public async createTestCase(testKey: string, testTitle: string, testDescription?: string): Promise<string | null> {
@@ -142,10 +208,23 @@ export class XrayServerClient {
   }
 
   /**
-   * Ensure test case exists (find or create)
+   * Ensure test case exists (find by key, find by description, or create)
    */
   public async ensureTestCaseExists(testKey: string, testTitle: string, testDescription?: string): Promise<string | null> {
     let testCase = await this.findTestCase(testKey);
+    
+    if (!testCase) {
+      // Try to find by description matching
+      this.logger.info(`Test case ${testKey} not found by key, searching by description...`);
+      testCase = await this.findTestCaseByDescription(testTitle);
+      
+      if (testCase) {
+        this.logger.info(`Found test case by description: ${testCase.key} - will update summary if needed`);
+        // Update summary if it differs from Playwright test title
+        await this.updateTestCaseSummary(testCase.key, testTitle);
+        return testCase.key;
+      }
+    }
     
     if (!testCase) {
       // Create the test case in Xray Server
@@ -157,15 +236,18 @@ export class XrayServerClient {
         this.logger.warn(`Test case ${testKey} not found and could not be created in Xray Server`);
         return null;
       }
+    } else {
+      // Update summary if it differs from Playwright test title
+      await this.updateTestCaseSummary(testCase.key, testTitle);
     }
     
     return testCase.key;
   }
 
   /**
-   * Update test case status in Xray Server
+   * Update test case status in Xray Server using proper test execution
    */
-  public async updateTestCaseStatus(testKey: string, status: 'PASSED' | 'FAILED' | 'SKIPPED' | 'TODO' | 'EXECUTING'): Promise<boolean> {
+  public async updateTestCaseStatus(testKey: string, status: 'PASSED' | 'FAILED' | 'SKIPPED' | 'TODO' | 'EXECUTING', executionTime?: number, comment?: string): Promise<boolean> {
     try {
       const testCase = await this.findTestCase(testKey);
       if (!testCase) {
@@ -173,20 +255,43 @@ export class XrayServerClient {
         return false;
       }
 
-      // Map Xray status to Jira status
-      const jiraStatus = this.mapXrayStatusToJira(status);
-      
-      // Update test case status using Jira REST API
-      await this.axiosInstance.put(`/issue/${testKey}`, {
+      // Create a test execution for this specific test case
+      const executionData = {
         fields: {
-          status: {
-            name: jiraStatus
-          }
+          project: {
+            key: this.config.getConfig().projectKey
+          },
+          summary: `Test Execution: ${testKey} - ${status}`,
+          description: `Automated test execution from Playwright\n\nTest: ${testKey}\nStatus: ${status}\nExecution Time: ${executionTime || 0}ms\nTimestamp: ${new Date().toISOString()}\n\n${comment || 'Test executed via Playwright automation'}`,
+          issuetype: {
+            name: 'Test Execution'
+          },
+          priority: {
+            name: 'Medium'
+          },
+          assignee: {
+            name: this.config.getConfig().jiraUsername
+          },
+          // Link to the test case
+          customfield_10014: [testKey] // This is typically the test case link field in Xray
         }
-      });
+      };
 
-      this.logger.info(`Updated test case ${testKey} status to ${status} (Jira: ${jiraStatus}) in Xray Server`);
-      return true;
+      // Create the test execution
+      const response: AxiosResponse = await this.axiosInstance.post('/issue', executionData);
+      
+      if (response.data && response.data.key) {
+        const testExecutionKey = response.data.key;
+        this.logger.info(`Created test execution ${testExecutionKey} for test case ${testKey} with status ${status}`);
+        
+        // Add execution result as comment to the test case
+        await this.addTestExecutionComment(testKey, status, executionTime, comment);
+        
+        return true;
+      } else {
+        this.logger.warn(`Test execution creation response missing key: ${JSON.stringify(response.data)}`);
+        return false;
+      }
     } catch (error) {
       this.logger.error(`Failed to update test case ${testKey} status in Xray Server: ${error}`);
       return false;
@@ -219,7 +324,7 @@ export class XrayServerClient {
   public async updateAllTestCaseStatuses(testResults: XrayTestResult[]): Promise<void> {
     let successCount = 0;
     for (const test of testResults) {
-      const success = await this.updateTestCaseStatus(test.testKey, test.status);
+      const success = await this.updateTestCaseStatus(test.testKey, test.status, test.executionTime, test.comment);
       if (success) successCount++;
     }
     this.logger.info(`Updated statuses for ${successCount}/${testResults.length} test cases in Xray Server`);

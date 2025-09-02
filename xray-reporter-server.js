@@ -131,74 +131,64 @@ class XrayReporterServer {
       const xrayClient = XrayServerClient.getInstance();
       const config = XrayConfigManager.getInstance();
       
-      this.logger.info('=== Starting Xray Server Integration ===');
+      this.logger.info('=== Starting Enhanced Xray Server Integration ===');
       
-      // Step 1: Update test case statuses (for existing test cases)
-      this.logger.info('Updating test case statuses in Xray Server...');
-      await xrayClient.updateAllTestCaseStatuses(results);
-      
-      // Step 2: Add execution comments to test cases
-      this.logger.info('Adding execution comments to test cases in Xray Server...');
-      let commentSuccessCount = 0;
+      // Step 1: Ensure test cases exist (find by key, find by description, or create)
+      this.logger.info('Ensuring test cases exist in Xray Server...');
+      let testCaseSuccessCount = 0;
       for (const test of results) {
-        const success = await xrayClient.addTestExecutionComment(
+        // Extract test title from comment (first line)
+        const testTitle = test.comment.split('\n')[0].replace('Test: ', '');
+        const testDescription = test.comment;
+        
+        const testCaseKey = await xrayClient.ensureTestCaseExists(test.testKey, testTitle, testDescription);
+        if (testCaseKey) {
+          testCaseSuccessCount++;
+          // Update the test key in case it was found by description
+          test.testKey = testCaseKey;
+        }
+      }
+      
+      // Step 2: Update test case statuses with proper test executions
+      this.logger.info('Updating test case statuses with test executions in Xray Server...');
+      let statusSuccessCount = 0;
+      for (const test of results) {
+        const success = await xrayClient.updateTestCaseStatus(
           test.testKey, 
           test.status, 
           test.executionTime, 
           test.comment
         );
-        if (success) commentSuccessCount++;
+        if (success) statusSuccessCount++;
       }
       
-      // Step 3: Create test execution
-      this.logger.info('Creating test execution in Xray Server...');
-      const executionInfo = {
-        summary: `Automated Test Execution - ${new Date().toISOString()}`,
-        description: `Playwright test execution completed in ${Date.now() - this.startTime}ms\n\nTest Results:\n${results.map(r => `- ${r.testKey}: ${r.status}`).join('\n')}`,
-        testEnvironments: [this.options.environment || config.getConfig().environment],
-        testPlanKey: this.options.testPlanKey,
-        version: this.options.version || config.getConfig().version,
-        user: config.getConfig().jiraUsername
-      };
-
-      const testExecutionKey = await xrayClient.createTestExecution({
-        info: executionInfo,
-        tests: results
-      });
-
-      // Step 4: Log comprehensive summary
-      this.logger.info('=== Xray Server Integration Summary ===');
-      if (testExecutionKey) {
-        this.logger.info(`✅ Test Execution Created: ${testExecutionKey}`);
-      } else {
-        this.logger.info(`⚠️  Test Execution: Could not create in Xray Server`);
-      }
-      this.logger.info(`✅ Test Cases Processed: ${results.length}`);
-      this.logger.info(`✅ Comments Added: ${commentSuccessCount}/${results.length}`);
+      // Step 3: Log comprehensive summary
+      this.logger.info('=== Enhanced Xray Server Integration Summary ===');
+      this.logger.info(`✅ Test Cases Processed: ${testCaseSuccessCount}/${results.length}`);
+      this.logger.info(`✅ Test Executions Created: ${statusSuccessCount}/${results.length}`);
       this.logger.info(`✅ Status Updates: ${results.map(r => `${r.testKey} -> ${r.status}`).join(', ')}`);
-      this.logger.info('=== End Xray Server Integration Summary ===');
+      this.logger.info('=== End Enhanced Xray Server Integration Summary ===');
       
       // Save results to file for reference
       if (this.options.outputDir) {
         const outputFile = path.join(this.options.outputDir, 'xray-server-results.json');
         const resultsData = {
           timestamp: new Date().toISOString(),
-          testExecutionKey: testExecutionKey,
           testResults: results,
           summary: {
             totalTests: results.length,
-            commentsAdded: commentSuccessCount,
-            executionCreated: !!testExecutionKey
+            testCasesProcessed: testCaseSuccessCount,
+            testExecutionsCreated: statusSuccessCount
           }
         };
         fs.writeFileSync(outputFile, JSON.stringify(resultsData, null, 2));
         this.logger.info(`Xray Server results saved to: ${outputFile}`);
       }
 
-      if (testExecutionKey) {
-        this.logger.info(`🎉 Successfully integrated with Xray Server! Test Execution: ${testExecutionKey}`);
+      if (statusSuccessCount > 0) {
+        this.logger.info(`🎉 Successfully integrated with Xray Server! Created ${statusSuccessCount} test executions`);
       } else {
-        this.logger.info(`📋 Partial integration completed - test cases updated but execution not created in Xray Server`);
+        this.logger.info(`📋 Integration completed - test cases processed but no executions created`);
       }
       
     } catch (error) {
