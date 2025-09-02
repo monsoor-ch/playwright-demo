@@ -262,15 +262,14 @@ export class XrayServerClient {
         return false;
       }
 
-      // Step 2: Add test case to Test Execution (create Test Run)
-      const testRunKey = await this.addTestCaseToExecution(testExecutionKey, testKey, status, executionTime);
+      // Step 2: Create Test Run (Sub Test Execution) under the Test Execution
+      const testRunKey = await this.createTestRunUnderExecution(testExecutionKey, testKey, status, executionTime);
       if (!testRunKey) {
-        this.logger.error(`Failed to add test case ${testKey} to execution ${testExecutionKey}`);
+        this.logger.error(`Failed to create test run for ${testKey} in execution ${testExecutionKey}`);
         return false;
       }
 
-      // Step 3: Integration complete - Test Run created with status in summary
-      // Xray will handle the status management through its workflow
+      // Step 3: Integration complete - Test Run created with status
       this.logger.info(`Successfully created test run ${testRunKey} with status ${status} for test case ${testKey} in execution ${testExecutionKey}`);
       return true;
     } catch (error) {
@@ -334,9 +333,9 @@ export class XrayServerClient {
   }
 
   /**
-   * Add test case to Test Execution (create test run)
+   * Create Test Run (Sub Test Execution) under the Test Execution
    */
-  private async addTestCaseToExecution(testExecutionKey: string, testKey: string, status: string, executionTime?: number): Promise<string | null> {
+  private async createTestRunUnderExecution(testExecutionKey: string, testKey: string, status: string, executionTime?: number): Promise<string | null> {
     try {
       // Create Sub Test Execution (Test Run) under the main Test Execution
       const testRunData = {
@@ -369,7 +368,7 @@ export class XrayServerClient {
       
       return null;
     } catch (error) {
-      this.logger.error(`Failed to add test case to execution: ${error}`);
+      this.logger.error(`Failed to create test run under execution: ${error}`);
       return null;
     }
   }
