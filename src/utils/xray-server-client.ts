@@ -338,7 +338,7 @@ export class XrayServerClient {
    */
   private async addTestCaseToExecution(testExecutionKey: string, testKey: string, status: string, executionTime?: number): Promise<string | null> {
     try {
-      // Create Sub Test Execution (Test Run) linked to the main Test Execution
+      // Create Sub Test Execution (Test Run) under the main Test Execution
       const testRunData = {
         fields: {
           project: {
